@@ -1,0 +1,487 @@
+{
+  "reviewed_at": "2026-11-17",
+  "source": "https://github.com/users/yongfu-li/projects/4",
+  "groups_complete": true,
+  "items": [
+    {
+      "issue": 1,
+      "title": "Clustering Module - Lesson 2",
+      "status": "Ignore",
+      "authors": [
+        "Capeur"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/1",
+      "urls": [
+        "https://github.com/Capeur/SJTU-VLSI-TCL-Language",
+        "https://github.com/Capeur/eda-clustering-module-lab2.git",
+        "https://capeur.github.io/eda-clustering-module-lab2/"
+      ],
+      "comments": [
+        "https://github.com/Capeur/SJTU-VLSI-TCL-Language",
+        "https://github.com/Capeur/eda-clustering-module-lab2.git\nhttps://capeur.github.io/eda-clustering-module-lab2/"
+      ]
+    },
+    {
+      "issue": 2,
+      "title": "Clustering Module - Lesson 3",
+      "status": "Ignore",
+      "authors": [
+        "thy031"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/2",
+      "urls": [
+        "https://github.com/thy031/lab-03",
+        "https://thy031.github.io/lab-03/#lab"
+      ],
+      "comments": [
+        "main project: https://github.com/thy031/lab-03\n\npublic web: https://thy031.github.io/lab-03/#lab"
+      ]
+    },
+    {
+      "issue": 3,
+      "title": "Clustering Module - Lesson 4",
+      "status": "Ignore",
+      "authors": [
+        "GateUltra"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/3",
+      "urls": [
+        "https://github.com/user-attachments/assets/be16c69c-68db-4da6-bcee-b587cd83c130",
+        "https://github.com/user-attachments/assets/ca0cad9a-8f7a-4f80-9b44-c29b8d6b6e9c",
+        "https://github.com/GateUltra/eda-clustering-lab4"
+      ],
+      "comments": [
+        "<img width=\"1655\" height=\"1506\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/be16c69c-68db-4da6-bcee-b587cd83c130\" />\n<img width=\"1770\" height=\"4496\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/ca0cad9a-8f7a-4f80-9b44-c29b8d6b6e9c\" />",
+        "https://github.com/GateUltra/eda-clustering-lab4"
+      ]
+    },
+    {
+      "issue": 4,
+      "title": "Clustering Module - Lesson 5",
+      "status": "Ignore",
+      "authors": [
+        "Su3037"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/4",
+      "urls": [
+        "https://su3037.github.io/clustering-lab5-label-propagation/",
+        "https://github.com/Su3037/clustering-lab5-label-propagation"
+      ],
+      "comments": [
+        "Lab 5 Label Propagation Clustering Tutorial is now complete.\n\nOnline tutorial website:\nhttps://su3037.github.io/clustering-lab5-label-propagation/\n\nSource code repository:\nhttps://github.com/Su3037/clustering-lab5-label-propagation"
+      ]
+    },
+    {
+      "issue": 5,
+      "title": "Clustering Module - Lesson 6",
+      "status": "Ignore",
+      "authors": [
+        "xingguangyaoyu"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/5",
+      "urls": [
+        "https://xingguangyaoyu.github.io/eda-clustering-module-lab6/"
+      ],
+      "comments": [
+        "https://xingguangyaoyu.github.io/eda-clustering-module-lab6/"
+      ]
+    },
+    {
+      "issue": 6,
+      "title": "Clustering Module - Lesson 7",
+      "status": "Ignore",
+      "authors": [
+        "FanqinZeng"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/6",
+      "urls": [
+        "https://fanqinzeng.github.io/eda-clustering-lab7-kl/",
+        "https://github.com/FanqinZeng/eda-clustering-lab7-kl"
+      ],
+      "comments": [
+        "- 网站：https://fanqinzeng.github.io/eda-clustering-lab7-kl/\n- 仓库：https://github.com/FanqinZeng/eda-clustering-lab7-kl"
+      ]
+    },
+    {
+      "issue": 7,
+      "title": "Clustering Module - Lesson 8",
+      "status": "Ignore",
+      "authors": [
+        "stephQ-lab"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/7",
+      "urls": [
+        "https://github.com/stephQ-lab/TCLhw",
+        "https://github.com/user-attachments/files/33714154/eda_lab_08_fiduccia_mattheyses_fm.html"
+      ],
+      "comments": [
+        "https://github.com/[stephQ-lab/TCLhw](https://github.com/stephQ-lab/TCLhw)",
+        "[eda_lab_08_fiduccia_mattheyses_fm.html](https://github.com/user-attachments/files/33714154/eda_lab_08_fiduccia_mattheyses_fm.html)"
+      ]
+    },
+    {
+      "issue": 8,
+      "title": "Clustering Module - Lesson 9",
+      "status": "Ignore",
+      "authors": [
+        "muranfei"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/8",
+      "urls": [
+        "https://muranfei.github.io/rajaraman-wong-algorithm-teaching/",
+        "https://github.com/muranfei/rajaraman-wong-algorithm-teaching"
+      ],
+      "comments": [
+        "https://muranfei.github.io/rajaraman-wong-algorithm-teaching/\n\nhttps://github.com/muranfei/rajaraman-wong-algorithm-teaching"
+      ]
+    },
+    {
+      "issue": 9,
+      "title": "Clustering Module - Coordinator",
+      "status": "Done",
+      "authors": [
+        "Su3037"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/9",
+      "urls": [
+        "https://su3037.github.io/learning-clustering/",
+        "https://github.com/Su3037/learning-clustering/tree/main"
+      ],
+      "comments": [
+        "Online tutorial website:\nhttps://su3037.github.io/learning-clustering/\n\nSource code repository:\nhttps://github.com/Su3037/learning-clustering/tree/main"
+      ]
+    },
+    {
+      "issue": 10,
+      "title": "Partitioning Module - Lesson 2",
+      "status": "Ignore",
+      "authors": [
+        "GateUltra"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/10",
+      "urls": [
+        "https://gateultra.github.io/Partitioning_Lesson2/"
+      ],
+      "comments": [
+        "https://gateultra.github.io/Partitioning_Lesson2/"
+      ]
+    },
+    {
+      "issue": 11,
+      "title": "Partitioning Module - Lesson 3",
+      "status": "Ignore",
+      "authors": [
+        "Capeur"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/11",
+      "urls": [
+        "https://github.com/Capeur/eda-partitioning-module-lab3.git",
+        "https://capeur.github.io/eda-partitioning-module-lab3/"
+      ],
+      "comments": [
+        "https://github.com/Capeur/eda-partitioning-module-lab3.git\nhttps://capeur.github.io/eda-partitioning-module-lab3/"
+      ]
+    },
+    {
+      "issue": 12,
+      "title": "Partitioning Module - Lesson 4",
+      "status": "Ignore",
+      "authors": [
+        "muranfei"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/12",
+      "urls": [
+        "https://muranfei.github.io/kl-fm-refinement-lab/",
+        "https://github.com/muranfei/kl-fm-refinement-lab"
+      ],
+      "comments": [
+        "Live website: https://muranfei.github.io/kl-fm-refinement-lab/\nhttps://github.com/muranfei/kl-fm-refinement-lab"
+      ]
+    },
+    {
+      "issue": 13,
+      "title": "Partitioning Module - Lesson 5",
+      "status": "Ignore",
+      "authors": [
+        "stephQ-lab"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/13",
+      "urls": [
+        "https://github.com/user-attachments/files/33997214/index.html"
+      ],
+      "comments": [
+        "[index.html](https://github.com/user-attachments/files/33997214/index.html)"
+      ]
+    },
+    {
+      "issue": 14,
+      "title": "Partitioning Module - Lesson 6",
+      "status": "Ignore",
+      "authors": [
+        "thy031"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/14",
+      "urls": [
+        "https://github.com/thy031/partitioning6",
+        "https://thy031.github.io/partitioning6/"
+      ],
+      "comments": [
+        "https://github.com/thy031/partitioning6\nhttps://thy031.github.io/partitioning6/"
+      ]
+    },
+    {
+      "issue": 15,
+      "title": "Partitioning Module - Lesson 7",
+      "status": "Ignore",
+      "authors": [
+        "xingguangyaoyu"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/15",
+      "urls": [
+        "https://xingguangyaoyu.github.io/EDA-Partitioning-Module-Lesson-7/",
+        "https://github.com/xingguangyaoyu/EDA-Partitioning-Module-Lesson-7"
+      ],
+      "comments": [
+        "https://xingguangyaoyu.github.io/EDA-Partitioning-Module-Lesson-7/\nhttps://github.com/xingguangyaoyu/EDA-Partitioning-Module-Lesson-7"
+      ]
+    },
+    {
+      "issue": 16,
+      "title": "Partitioning Module - Lesson 8",
+      "status": "Ignore",
+      "authors": [
+        "FanqinZeng"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/16",
+      "urls": [
+        "https://fanqinzeng.github.io/eda-partitioning-lesson8/",
+        "https://github.com/FanqinZeng/eda-partitioning-lesson8"
+      ],
+      "comments": [
+        "page: https://fanqinzeng.github.io/eda-partitioning-lesson8/\nrepo: https://github.com/FanqinZeng/eda-partitioning-lesson8"
+      ]
+    },
+    {
+      "issue": 17,
+      "title": "Partitioning Module - Coordinator",
+      "status": "Done",
+      "authors": [
+        "FanqinZeng"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/17",
+      "urls": [
+        "https://fanqinzeng.github.io/Partitioning_Module_Coordinator/",
+        "https://github.com/FanqinZeng/Partitioning_Module_Coordinator/tree/course-upgrades"
+      ],
+      "comments": [
+        "https://fanqinzeng.github.io/Partitioning_Module_Coordinator/\nhttps://github.com/FanqinZeng/Partitioning_Module_Coordinator/tree/course-upgrades"
+      ]
+    },
+    {
+      "issue": 18,
+      "title": "Floorplanning - Lesson 2",
+      "status": "Done",
+      "authors": [
+        "muranfei"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/18",
+      "urls": [
+        "https://muranfei.github.io/eda-floorplanning-topic02/",
+        "https://github.com/muranfei/eda-floorplanning-topic02"
+      ],
+      "comments": [
+        "website:https://muranfei.github.io/eda-floorplanning-topic02/\nrepo:https://github.com/muranfei/eda-floorplanning-topic02"
+      ]
+    },
+    {
+      "issue": 19,
+      "title": "Floorplanning - Lesson 3",
+      "status": "Done",
+      "authors": [
+        "stephQ-lab"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/19",
+      "urls": [
+        "https://github.com/user-attachments/files/34252235/area-deadspace.zip"
+      ],
+      "comments": [
+        "[area-deadspace.zip](https://github.com/user-attachments/files/34252235/area-deadspace.zip)"
+      ]
+    },
+    {
+      "issue": 20,
+      "title": "Floorplanning - Lesson 4",
+      "status": "Done",
+      "authors": [
+        "GateUltra"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/20",
+      "urls": [
+        "https://gateultra.github.io/floorplanning-lesson4/",
+        "https://github.com/GateUltra/vlsi-course-director"
+      ],
+      "comments": [
+        "https://gateultra.github.io/floorplanning-lesson4/",
+        "https://github.com/GateUltra/vlsi-course-director"
+      ]
+    },
+    {
+      "issue": 21,
+      "title": "Floorplanning - Lesson 5",
+      "status": "Done",
+      "authors": [
+        "Capeur"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/21",
+      "urls": [
+        "https://github.com/Capeur/eda-floorplanning-module-lab5",
+        "https://capeur.github.io/eda-floorplanning-module-lab5/"
+      ],
+      "comments": [
+        "https://github.com/Capeur/eda-floorplanning-module-lab5\nhttps://capeur.github.io/eda-floorplanning-module-lab5/"
+      ]
+    },
+    {
+      "issue": 22,
+      "title": "Floorplanning - Lesson 6",
+      "status": "Done",
+      "authors": [
+        "Su3037"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/22",
+      "urls": [
+        "https://github.com/Su3037/floorplanning-lesson6-sequence-pair",
+        "https://su3037.github.io/floorplanning-lesson6-sequence-pair/",
+        "https://claude.ai/code"
+      ],
+      "comments": [
+        "Hi Prof. Li,\n\nLesson 6 (Sequence-Pair) is done as a standalone open-source lesson:\n\n- Repository: https://github.com/Su3037/floorplanning-lesson6-sequence-pair\n- Website: https://su3037.github.io/floorplanning-lesson6-sequence-pair/ (Chinese first; English edition at `/en/`)\n\nWhat it contains: a lesson page; an interactive lab where you edit pos/neg and step through every relation, constraint edge and longest-path maximum; four films (popular, concise, advanced, lab walkthrough) with Chinese and English captions; a 14-page deck (PDF and editable PPTX with notes); 7 graded challenges and 6 concept checks; an in-browser Python code lab and a downloadable Python pack. It uses your `common/pack.py` convention and the five-block example, and is credited under CC BY 4.0.\n\nAll numbers come from the engine and are tested: ABCED / DABCE gives a 9 × 4 packing with D at (0, 3); all 14,400 pairs are overlap-free and 13,680 fit the 10 × 8 outline; the JS engine is cross-checked against an independent Python reference.\n\nNote: `common/goldens.py`'s `GOLDEN_PACK` draws D at y = 2; that is a different illustration, not the packing of ABCED / DABCE, and the lesson says so.\n\nLimitations: fixed block sizes (rotation only as a labelled extension); no search/annealing beyond neighbour moves; the popular film's music is a third-party track used at the author's choice and is not covered by the repository's licences.\n\nThank you!\nSu3037\n\n---\n_Generated by [Claude Code](https://claude.ai/code)_\n"
+      ]
+    },
+    {
+      "issue": 23,
+      "title": "Floorplanning - Lesson 7",
+      "status": "Done",
+      "authors": [
+        "thy031"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/23",
+      "urls": [
+        "https://github.com/thy031/floorplanning7",
+        "https://thy031.github.io/floorplanning7/"
+      ],
+      "comments": [
+        "https://github.com/thy031/floorplanning7\nhttps://thy031.github.io/floorplanning7/"
+      ]
+    },
+    {
+      "issue": 24,
+      "title": "Floorplanning - Lesson 8",
+      "status": "Done",
+      "authors": [
+        "xingguangyaoyu"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/24",
+      "urls": [
+        "https://xingguangyaoyu.github.io/EDA-Floorplanning-Lesson-8/",
+        "https://github.com/xingguangyaoyu/EDA-Floorplanning-Lesson-8"
+      ],
+      "comments": [
+        "https://xingguangyaoyu.github.io/EDA-Floorplanning-Lesson-8/\nhttps://github.com/[xingguangyaoyu/EDA-Floorplanning-Lesson-8](https://github.com/xingguangyaoyu/EDA-Floorplanning-Lesson-8)"
+      ]
+    },
+    {
+      "issue": 25,
+      "title": "Placement - Lab 02",
+      "status": "Backlog",
+      "authors": [
+        "Su3037"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/25",
+      "urls": [],
+      "comments": []
+    },
+    {
+      "issue": 26,
+      "title": "Placement - Lesson 03",
+      "status": "Backlog",
+      "authors": [
+        "FanqinZeng"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/26",
+      "urls": [],
+      "comments": []
+    },
+    {
+      "issue": 27,
+      "title": "Placement - Lesson 04",
+      "status": "Backlog",
+      "authors": [
+        "thy031"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/27",
+      "urls": [],
+      "comments": []
+    },
+    {
+      "issue": 28,
+      "title": "Placement - Lesson 05",
+      "status": "Backlog",
+      "authors": [
+        "muranfei"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/28",
+      "urls": [],
+      "comments": []
+    },
+    {
+      "issue": 29,
+      "title": "Placement - Lesson 05",
+      "status": "Done",
+      "authors": [
+        "stephQ-lab"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/29",
+      "urls": [],
+      "comments": []
+    },
+    {
+      "issue": 30,
+      "title": "Placement - Lesson 06",
+      "status": "Backlog",
+      "authors": [
+        "GateUltra"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/30",
+      "urls": [],
+      "comments": []
+    },
+    {
+      "issue": 31,
+      "title": "Placement - Lesson 07",
+      "status": "Backlog",
+      "authors": [
+        "Capeur"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/31",
+      "urls": [],
+      "comments": []
+    },
+    {
+      "issue": 32,
+      "title": "Floorplaning - Coordinator",
+      "status": "Backlog",
+      "authors": [
+        "xingguangyaoyu"
+      ],
+      "issue_url": "https://github.com/yongfu-li/eda-learning/issues/32",
+      "urls": [
+        "https://xingguangyaoyu.github.io/Floorplanning/",
+        "https://github.com/xingguangyaoyu/Floorplanning"
+      ],
+      "comments": [
+        "https://xingguangyaoyu.github.io/Floorplanning/\nhttps://github.com/xingguangyaoyu/Floorplanning"
+      ]
+    }
+  ]
+}

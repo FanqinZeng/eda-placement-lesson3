@@ -1,0 +1,48 @@
+{
+  "reviewed_at": "2026-11-17",
+  "items": [
+    {
+      "issue": 3,
+      "mode": "repository source",
+      "repository": "GateUltra/eda-clustering-lab4",
+      "paths": [
+        "README.md",
+        "index.html"
+      ],
+      "published_site_found": false
+    },
+    {
+      "issue": 19,
+      "mode": "ZIP HTML source",
+      "url": "https://github.com/user-attachments/files/34252235/area-deadspace.zip",
+      "reviewed_files": [
+        "area-deadspace/index.html"
+      ],
+      "archive_inventory_checked": true,
+      "video_playback_checked": false
+    },
+    {
+      "issue": 22,
+      "mode": "linked module HTML",
+      "url": "https://su3037.github.io/floorplanning-lesson6-sequence-pair/modules/m06-sequence-pair/index.html",
+      "http": 200
+    },
+    {
+      "issue": 23,
+      "mode": "linked lab and tool shells",
+      "urls": [
+        "https://thy031.github.io/floorplanning7/site/courses/learn_floorplanning/labs/simulated-annealing-fp/index.html",
+        "https://thy031.github.io/floorplanning7/site/tools/simulated-annealing-fp/index.html"
+      ],
+      "http": 200,
+      "dynamic_interaction_verified": false
+    },
+    {
+      "issue": 32,
+      "mode": "entry HTML and loaded app source",
+      "url": "https://xingguangyaoyu.github.io/Floorplanning/assets/app.mjs?v=192c4537332f",
+      "http": 200,
+      "dynamic_interaction_verified": false
+    }
+  ]
+}
