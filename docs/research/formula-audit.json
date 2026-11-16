@@ -1,0 +1,28 @@
+{
+  "kind": "research-formula-check",
+  "checked_at": "2026-11-17",
+  "seed": 2603,
+  "pin_counts": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cases_per_pin_count": 500,
+  "total_cases": 4000,
+  "coordinates": "integer x,y uniformly chosen from -8..8",
+  "distance": "Manhattan, unit edge weights, existing-pin star hubs",
+  "passed": [
+    "sum of all hub-star totals equals twice clique",
+    "HPWL <= each hub-star <= clique",
+    "(p-1)*HPWL <= clique <= floor(p*p/4)*HPWL",
+    "translation invariance (+11,-5)",
+    "positive scaling by 3",
+    "reverse pin-order invariance"
+  ],
+  "limitation": "Checks research formulas only; no course engine, browser UI or finished video exists yet."
+}
