@@ -19,13 +19,13 @@ export async function initLessonPlayer(root=document){
   $('#chapters').innerHTML=v.chapters.map((c,i)=>`<button data-chapter="${i}"><span>${Math.floor(c.start/60)}:${String(Math.floor(c.start%60)).padStart(2,'0')}</span>${c.title}</button>`).join('');
   $('#chapters').querySelectorAll('button').forEach((button,i)=>button.onclick=()=>{
    const t=v.chapters[i].start;if(pending){pending.time=t;pending.resume=true;return;}
-   video.currentTime=t;video.play().catch(()=>{$('#video-status').textContent='章节已定位，点击播放器开始。';});
+   video.currentTime=t;const chapterRequest=request;video.play().catch(()=>{if(chapterRequest!==request)return;$('#video-status').textContent='章节已定位，点击播放器开始。';});
   });
  }
  function switchVoice(lang){
   if(!versions[lang])return;
   const token=++request,from=pending?.lang||active,time=pending?.time??video.currentTime;
-  const state={lang,time:mapPlaybackTime(time,versions[from].scenes,versions[lang].scenes),resume:pending?.resume??!video.paused,speed:pending?.speed??video.playbackRate};
+  const state={lang,time:mapPlaybackTime(time,versions[from].scenes,versions[lang].scenes),resume:pending?.resume??!video.paused,speed:pending?.speed??video.playbackRate,captionMode:pending?.captionMode??track.track?.mode??'showing'};
   pending=state;video.pause();resources(lang);status.textContent=`正在载入 ${versions[lang].label} 配音…`;$('#video-status').textContent='';
   for(const t of video.textTracks)t.mode='disabled';
   track.src=versions[lang].captions;track.srclang=versions[lang].trackLanguage;track.label=versions[lang].trackLabel;
@@ -33,8 +33,8 @@ export async function initLessonPlayer(root=document){
   video.addEventListener('loadedmetadata',()=>{
    if(token!==request)return;
    active=lang;video.dataset.language=lang;video.currentTime=Math.min(state.time,Math.max(0,video.duration-.01));video.playbackRate=state.speed;
-   if(track.track)track.track.mode='showing';select.value=lang;status.textContent=`当前配音：${versions[lang].label} · ${versions[lang].voice}`;pending=null;
-   if(state.resume)video.play().catch(()=>{$('#video-status').textContent='语言已切换，点击播放器继续播放。';});
+   if(track.track)track.track.mode=state.captionMode;select.value=lang;status.textContent=`当前配音：${versions[lang].label} · ${versions[lang].voice}`;pending=null;
+   if(state.resume)video.play().catch(()=>{if(token!==request)return;$('#video-status').textContent='语言已切换，点击播放器继续播放。';});
   },{once:true});
   video.src=versions[lang].video;video.load();
  }

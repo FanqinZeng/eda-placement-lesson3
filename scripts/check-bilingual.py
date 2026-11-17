@@ -35,8 +35,21 @@ with sync_playwright() as p:
     page.locator('#chapters button').nth(3).click();target=versions['en']['chapters'][3]['start'];page.wait_for_function('(t)=>document.querySelector("video").currentTime>=t-.1',arg=target)
     page.wait_for_function('document.querySelector("#lesson-captions").track.cues?.length>0');video.evaluate('(v)=>v.pause()')
     assert video.evaluate('(v)=>v.textTracks[0].language')=='en-US'
+    # Keep the viewer's caption preference across a voice switch.
+    video.evaluate('(v)=>v.textTracks[0].mode="disabled"')
+    page.locator('#voice-language').select_option('zh');page.wait_for_function('document.querySelector("video").dataset.language==="zh" && document.querySelector("video").readyState>=2')
+    assert video.evaluate('(v)=>v.textTracks[0].mode')=='disabled'
+    video.evaluate('(v)=>v.textTracks[0].mode="showing"')
+    # Reject a play request from an obsolete source after the latest source works.
+    video.evaluate('(v)=>{v.muted=true;return v.play()}')
+    video.evaluate('(v)=>{v.actualPlay=v.play.bind(v);v.play=()=>new Promise((resolve,reject)=>window.rejectOldPlay=reject)}')
+    page.locator('#voice-language').select_option('en');page.wait_for_function('typeof window.rejectOldPlay==="function"')
+    page.locator('#voice-language').select_option('zh');page.wait_for_function('document.querySelector("video").dataset.language==="zh" && document.querySelector("video").readyState>=2')
+    video.evaluate('(v)=>v.actualPlay()');page.evaluate('window.rejectOldPlay(new DOMException("obsolete source", "AbortError"))')
+    assert page.locator('#video-status').inner_text()==''
+    video.evaluate('(v)=>{v.play=v.actualPlay;v.pause()}')
     for width in [390,1440]:
         page.set_viewport_size({'width':width,'height':900});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
     assert not errors,errors
-    report={'status':'passed','url':args.url,'languages':['zh','en'],'checks':['two real MP4 files','paused voice switch preserves scene/fraction','playing switch resumes','playback speed preserved','rapid language changes finish on latest choice','matching captions and track language','matching current video/subtitle/transcript download links','language-specific chapter seeking','mobile/desktop no horizontal overflow','no uncaught JS errors']}
+    report={'status':'passed','url':args.url,'languages':['zh','en'],'checks':['two real MP4 files','paused voice switch preserves scene/fraction','playing switch resumes','playback speed preserved','rapid language changes finish on latest choice','matching captions and track language','caption off preference preserved','obsolete play rejection cannot overwrite current status','matching current video/subtitle/transcript download links','language-specific chapter seeking','mobile/desktop no horizontal overflow','no uncaught JS errors']}
     (ROOT/'docs/qa'/args.report).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');browser.close();print('PASS: actual Chinese/English voice switching, playback, captions, downloads and chapter seeking')

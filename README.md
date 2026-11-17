@@ -4,7 +4,7 @@
 
 **第一版已于 2026-11-17 12:13（Asia/Shanghai）发布并验证，早于 15:00 截止时间。**
 
-[打开课程网站](https://fanqinzeng.github.io/eda-placement-lesson3/) · [观看/下载中文配音动画](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.zh.mp4)
+[打开课程网站](https://fanqinzeng.github.io/eda-placement-lesson3/) · [中文配音动画](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.zh.mp4) · [English narration](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.en.mp4)
 
 用户已授权按推荐静态方案全权推进，每 40 分钟的定时任务衔接实际反馈和未完成的质量检查。
 

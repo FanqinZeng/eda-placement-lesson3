@@ -12,6 +12,8 @@
     "playback speed preserved",
     "rapid language changes finish on latest choice",
     "matching captions and track language",
+    "caption off preference preserved",
+    "obsolete play rejection cannot overwrite current status",
     "matching current video/subtitle/transcript download links",
     "language-specific chapter seeking",
     "mobile/desktop no horizontal overflow",

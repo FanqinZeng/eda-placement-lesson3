@@ -22,6 +22,8 @@ jobs:
         run: node --test tests/*.test.mjs
       - name: Verify offline video byte ranges
         run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Check both narration versions
+        run: python3 scripts/build-versions.py
       - name: Check static resources
         run: python3 scripts/check-site.py
       - uses: actions/configure-pages@v5
