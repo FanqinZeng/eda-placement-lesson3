@@ -1,0 +1,6 @@
+{
+  "digest": "057fe2f366a43857b46ee20158231abf5f66ce31b329dfd560285aeaa4efde3b",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+0%",
+  "text": "如果把所有引脚挤到同一个位置，三个线长都变成零。但真实单元有面积，不能任意重叠。线长模型没有替你检查密度、重叠和时序。"
+}

@@ -1,0 +1,6 @@
+{
+  "digest": "d87e361466dc531a8ab77b990a331c7b604473e015a2fed06a838d19dde91f41",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+0%",
+  "text": "按字母顺序，先算 A 到 B、A 到 C、A 到 D，再算 B 到 C、B 到 D，最后算 C 到 D。六个距离依次是二、二、四、四、二、二。"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "browser": "Microsoft Edge headless, isolated context",
+  "viewports": [
+    390,
+    768,
+    1440
+  ],
+  "checks": [
+    "standard metrics",
+    "asymmetric hub",
+    "invalid coordinate preserves state",
+    "keyboard movement",
+    "pointer movement",
+    "trace stepping",
+    "explicit task completion",
+    "progress persistence/reset",
+    "reduced motion",
+    "no horizontal overflow",
+    "storage denied fallback",
+    "no uncaught JS errors"
+  ]
+}
