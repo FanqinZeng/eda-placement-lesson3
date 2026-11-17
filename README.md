@@ -2,7 +2,11 @@
 
 中文交互课程：同一组引脚，比较 BBox/HPWL、Clique 与 Star。为 [eda-learning issue #26](https://github.com/yongfu-li/eda-learning/issues/26) 制作，对应关系及主题依据见 [课程范围](docs/research/course-scope.md)。
 
-首版已完成本地实现与验证，GitHub Pages 发布验证进行中。用户已授权按推荐静态方案全权推进。每 40 分钟的定时任务继续衔接实际进度；首版截止时间为 2026-11-17 15:00（Asia/Shanghai）。
+**第一版已于 2026-11-17 12:13（Asia/Shanghai）发布并验证，早于 15:00 截止时间。**
+
+[打开课程网站](https://fanqinzeng.github.io/eda-placement-lesson3/) · [观看/下载中文配音动画](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.zh.mp4)
+
+用户已授权按推荐静态方案全权推进，每 40 分钟的定时任务衔接实际反馈和未完成的质量检查。
 
 ## 内容
 

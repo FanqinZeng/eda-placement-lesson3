@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "url": "https://fanqinzeng.github.io/eda-placement-lesson3/",
+  "http": 200,
+  "checks": [
+    "live engine 4/16/8",
+    "live asymmetric hub 11/36/22",
+    "MP4 duration",
+    "actual chapter seeking over HTTPS",
+    "no uncaught JS errors",
+    "mobile no horizontal overflow"
+  ],
+  "workflow": "https://github.com/FanqinZeng/eda-placement-lesson3/actions/runs/44015478488"
+}
