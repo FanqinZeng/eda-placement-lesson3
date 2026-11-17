@@ -4,7 +4,7 @@
 
 **第一版已于 2026-11-17 12:13（Asia/Shanghai）发布并验证，早于 15:00 截止时间。**
 
-[打开课程网站](https://fanqinzeng.github.io/eda-placement-lesson3/) · [中文配音动画](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.zh.mp4) · [English narration](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.en.mp4)
+[打开课程网站](https://fanqinzeng.github.io/eda-placement-lesson3/) · [在线学习资料](https://fanqinzeng.github.io/eda-placement-lesson3/reading/) · [中文配音动画](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.zh.mp4) · [English narration](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.en.mp4)
 
 **中英文配音补齐已于 2026-11-17 12:36 发布并验证。** 在影片上方选择“中文 / English”，或使用上方两种语言的成片直链。
 
@@ -16,7 +16,7 @@
 - 逐条 Clique 求和演示、对称/非对称/内部点反例。
 - 六项实验任务、六项带解析概念检查，本地学习记录及禁用存储降级。
 - 中英文两个完整配音版本：中文 5 分 46 秒，英文约 5 分 50 秒；均为 1080p/30fps 连续动画，各有对应字幕、文字稿和章节。网页可切换配音，按分镜保持进度与倍速。
-- 中文讲义、Python 练习、独立参考实现、数据与可复现媒体源文件。
+- 站内资料阅读页：Python 练习与参考实现可直接查看、复制；坐标表与原始 JSON、完整讲义、中英文文字稿、复现说明全部在线阅读，可选下载保留。
 
 ## 本地运行
 
@@ -30,6 +30,7 @@ python3 scripts/serve.py --port 8000
 
 ```bash
 node --test tests/*.test.mjs
+python3 scripts/build_reading.py --check
 python3 scripts/check-site.py
 python3 scripts/verify-media.py
 python3 scripts/verify-media.py --lang en
@@ -53,6 +54,7 @@ node scripts/export-data.mjs
 .venv/bin/python scripts/render-film.py --lang en
 .venv/bin/python scripts/verify-media.py --lang en
 .venv/bin/python scripts/build-versions.py
+python3 scripts/build_reading.py
 ```
 
 `video/story.json` 是可编辑分镜和旁白，`video/data.json` 由网页引擎导出。`video/audio/` 冻结逐段音频、来源信息和服务返回的句子时间戳；文字不变时无需再调用 TTS。中文合成声音为 `zh-CN-XiaoxiaoNeural`，英文为 `en-US-JennyNeural`；英文分镜、音频与时间轴分别在 `video/story.en.json`、`video/audio/en/`、`video/timeline.en.json`，不会覆盖中文资源。实际音频时长决定场景与字幕时间，服务返回的约 50ms 重叠句尾被裁到下一句起点，原始边界保留。

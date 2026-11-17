@@ -15,8 +15,8 @@ with sync_playwright() as p:
     page.locator('#data summary').click();assert page.locator('#data-code').text_content()==(ROOT/'site/downloads/examples.json').read_text()
     for width in [390,768,1440]:
         page.set_viewport_size({'width':width,'height':900});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),width
-    (ROOT/'.qa').mkdir(exist_ok=True);page.goto(args.url+'reading/#notes');page.screenshot(path=str(ROOT/'.qa/reading-desktop.png'))
-    page.set_viewport_size({'width':390,'height':900});page.screenshot(path=str(ROOT/'.qa/reading-mobile.png'))
+    (ROOT/'.qa').mkdir(exist_ok=True);page.goto(args.url+'reading/#notes');page.locator('#notes').evaluate('(el)=>el.scrollIntoView({behavior:"instant",block:"start"})');page.screenshot(path=str(ROOT/'.qa/reading-desktop.png'))
+    page.set_viewport_size({'width':390,'height':900});page.locator('#notes').evaluate('(el)=>el.scrollIntoView({behavior:"instant",block:"start"})');page.screenshot(path=str(ROOT/'.qa/reading-mobile.png'))
     # The full lesson and code are rendered HTML, not a JavaScript fetch-only viewer.
     static=browser.new_context(java_script_enabled=False);q=static.new_page();q.goto(args.url+'reading/');assert 'def bbox' in q.locator('#exercise').inner_text();assert '半周长' in q.locator('#notes').inner_text();assert 'Horizontal plus vertical' in q.locator('#transcript-en').inner_text();static.close()
     assert not downloads,downloads;assert not errors,errors
