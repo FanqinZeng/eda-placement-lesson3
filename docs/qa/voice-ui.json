@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:8173/",
+  "checks": [
+    "English link defaults to English pictures and narration",
+    "Chinese link defaults to Chinese video",
+    "interface changes synchronize video and voice",
+    "same scene, fraction, paused state and speed preserved",
+    "bilingual captions stay selected",
+    "voice can still be chosen independently",
+    "reload and saved English preference retain matching video",
+    "no uncaught browser errors"
+  ]
+}

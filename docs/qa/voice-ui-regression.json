@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:8173/",
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "checks": [
+    "two real MP4 files",
+    "paused voice switch preserves scene/fraction",
+    "playing switch resumes",
+    "playback speed preserved",
+    "rapid language changes finish on latest choice",
+    "matching captions and track language",
+    "caption off preference preserved",
+    "obsolete play rejection cannot overwrite current status",
+    "matching video/subtitle downloads and online transcript links",
+    "language-specific chapter seeking",
+    "mobile/desktop no horizontal overflow",
+    "no uncaught JS errors"
+  ]
+}

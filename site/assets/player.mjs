@@ -50,5 +50,11 @@ export async function initLessonPlayer(root=document){
   resources('zh');applyCaption('zh');video.dataset.language='zh';status.textContent=`当前配音：中文 · ${versions.zh.voice}`;select.disabled=false;
   select.onchange=e=>switchVoice(e.target.value);
   if(captionSelect)captionSelect.onchange=e=>{captionChoice=e.target.value;applyCaption(pending?.lang||active);resources(pending?.lang||active);if(pending)pending.captionMode=captionChoice==='off'?'disabled':'showing';};
+  // Interface changes select the matching rendered film, including its pictures.
+  // The voice picker can still override that choice independently afterwards.
+  root.addEventListener('lessonlanguagechange',e=>{
+   const lang=e.detail.language;if(versions[lang]&&lang!==(pending?.lang||active))switchVoice(lang);
+  });
+  if(root.documentElement.lang.startsWith('en'))switchVoice('en');
  }catch{status.textContent='双语切换资料暂时无法载入；下方可分别下载中文和英文成片。';}
 }
