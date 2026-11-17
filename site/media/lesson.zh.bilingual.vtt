@@ -1,0 +1,270 @@
+WEBVTT
+
+00:00:00.100 --> 00:00:03.475
+同一组引脚，为什么会有三种线长？
+How can the same set of pins have three different wirelengths?
+
+00:00:03.475 --> 00:00:09.225
+这一课，我们用三把不同的尺子，看懂芯片布局里的网络模型。
+In this lesson, we use three different rulers to understand net models in chip
+placement.
+
+00:00:10.500 --> 00:00:14.762
+在芯片里，一个网络可以同时连接多个引脚。
+A net on a chip can connect several pins at once.
+
+00:00:14.762 --> 00:00:18.875
+连接关系已经确定，布局决定它们的位置。
+The connections are already specified; placement chooses their positions.
+
+00:00:18.875 --> 00:00:22.950
+估计线长之前，我们还需要选定测量模型。
+Before estimating wirelength, we must also choose a measurement model.
+
+00:00:24.200 --> 00:00:31.638
+先用四个可以手算的点。A、B、C、D，放在边长为二的正方形四角。
+Start with four pins at the corners of a square of side two.
+
+00:00:31.638 --> 00:00:36.950
+全课用同一个例子，比较包围盒、完全图和星形模型。
+We use these same coordinates throughout, comparing a bounding box, a clique, and a
+star.
+
+00:00:38.233 --> 00:00:47.208
+本课使用曼哈顿距离。它不是两点间的直线距离，而是横向差的绝对值，加竖向差的绝对值。
+We use Manhattan distance, rather than straight-line distance. Add the absolute
+horizontal difference to the absolute vertical difference.
+
+00:00:47.208 --> 00:00:50.021
+图中的折线是测量示意。
+The bent lines in our drawings illustrate that measurement.
+
+00:00:51.300 --> 00:00:58.250
+从左下角的 A 到右上角的 D，横向走二，竖向也走二，所以距离为四。
+From A at the lower left to D at the upper right, move two units horizontally and two
+vertically. Their Manhattan distance is four.
+
+00:00:58.250 --> 00:01:03.162
+先把这把小尺子固定，后面的求和才有相同口径。
+Every model here uses this same basic distance.
+
+00:01:04.433 --> 00:01:08.596
+第一种模型，先找到所有引脚的最小包围盒。
+The first model finds the smallest box containing all pins.
+
+00:01:08.596 --> 00:01:13.058
+最左、最右确定宽，最下、最上确定高。
+The leftmost and rightmost pins determine its width. The lowest and highest determine
+its height.
+
+00:01:13.058 --> 00:01:16.033
+半周长线长，就是宽加高。
+Add width and height.
+
+00:01:17.300 --> 00:01:24.613
+在这个正方形上，宽是二，高也是二，半周长是四。注意，是半周长。
+For our square, width and height are both two, giving a half-perimeter wirelength of
+four.
+
+00:01:24.613 --> 00:01:29.750
+沿着四条边绕完整一圈会得到八，那不是这里的指标。
+Walking around all four sides gives eight. That is the full perimeter, not this
+metric.
+
+00:01:31.000 --> 00:01:35.125
+无论有多少引脚，包围盒只需要四个极值。
+The bounding box needs only four extreme coordinates.
+
+00:01:35.125 --> 00:01:38.663
+扫描每个引脚一次，就能得到结果。
+Scan each pin once to find them, so the computation grows linearly with the number of
+pins.
+
+00:01:38.663 --> 00:01:43.363
+所以它计算便宜，适合快速估计网络的线长。
+It is a cheap wirelength estimate.
+
+00:01:44.633 --> 00:01:51.771
+第二种模型叫完全图模型，也叫克利克模型。它把每对不同引脚都连起来。
+The second model is a clique: connect every pair of distinct pins and add their
+Manhattan distances.
+
+00:01:51.771 --> 00:01:55.621
+四个引脚共有六对，同一对只计算一次。
+Four pins give six unordered pairs. Count each pair exactly once.
+
+00:01:56.900 --> 00:02:05.813
+按字母顺序，先算 A 到 B、A 到 C、A 到 D，再算 B 到 C、B 到 D，
+最后算 C 到 D。
+In alphabetical order, measure A to B, A to C, and A to D; then B to C, B to D, and C
+to D.
+
+00:02:05.813 --> 00:02:10.688
+六个距离依次是二、二、四、四、二、二。
+The six distances are two, two, four, four, two, and two.
+
+00:02:11.967 --> 00:02:15.992
+把六项相加，完全图模型的总和是十六。
+Adding these six terms gives sixteen.
+
+00:02:15.992 --> 00:02:22.942
+不要把 A 到 B 和 B 到 A 各加一遍，否则会重复计数，结果变成三十二。
+Do not count both A to B and B to A. Those names describe the same unordered pair;
+double counting would incorrectly produce thirty-two.
+
+00:02:24.233 --> 00:02:29.946
+当引脚数为 p，完全图有 p 乘 p 减一，再除以二条边。
+With p pins, a clique has p times p minus one, divided by two edges.
+
+00:02:29.946 --> 00:02:36.858
+这里使用没有归一化的曼哈顿距离总和，不是后续二次布局里的平方距离目标。
+Here we sum unnormalized Manhattan distances. This is not the squared-distance
+objective used in quadratic placement.
+
+00:02:38.133 --> 00:02:40.371
+第三种是星形模型。
+The third model is a star.
+
+00:02:40.371 --> 00:02:44.971
+先选一个现有引脚作中心，再把它连到其他引脚。
+Choose one existing pin as a hub and connect it to every other pin.
+
+00:02:44.971 --> 00:02:49.271
+本课把 A 作为中心，没有额外加入虚拟节点。
+Our example uses A. We do not introduce a virtual center.
+
+00:02:50.567 --> 00:02:56.642
+中心是 A 时，只需要 A 到 B、A 到 C、A 到 D 三条辐条。
+With A as the hub, the spokes are A to B, A to C, and A to D.
+
+00:02:56.642 --> 00:03:00.642
+距离分别是二、二、四，总和为八。
+Their lengths are two, two, and four, totaling eight.
+
+00:03:00.642 --> 00:03:04.029
+其余引脚之间的距离不进入这个和。
+Other pin pairs do not enter this sum.
+
+00:03:05.300 --> 00:03:10.813
+星形模型只有 p 减一条辐条，计算量与引脚数成正比。
+A star has only p minus one spokes, so its computation is linear in the pin count.
+
+00:03:10.813 --> 00:03:15.800
+但不要忘记，选择哪个中心，也是模型定义的一部分。
+But the hub is part of the model definition.
+
+00:03:15.800 --> 00:03:18.313
+报告数字时要写清楚。
+Always name it when reporting the result.
+
+00:03:19.600 --> 00:03:23.700
+现在，同一组点得到了四、十六、八。
+The same pins now give four, sixteen, and eight.
+
+00:03:23.700 --> 00:03:28.725
+连接没有改变，坐标也没有改变，只是求和方式不同。
+Neither their coordinates nor their connections changed. Only the measurement
+changed.
+
+00:03:28.725 --> 00:03:32.350
+这些数不能直接用来给模型排优劣。
+These numbers alone cannot rank which model is better.
+
+00:03:33.633 --> 00:03:38.658
+标准正方形里，四个角作星形中心，结果恰好一样。
+For the square, choosing any corner as the star hub happens to give the same answer.
+
+00:03:38.658 --> 00:03:41.046
+这个现象来自对称性。
+That is a consequence of symmetry.
+
+00:03:41.046 --> 00:03:45.508
+换成一张不对称的图，我们就能看见中心的影响。
+An asymmetric example reveals why the hub matters.
+
+00:03:46.767 --> 00:03:55.379
+在这组坐标里，A、B、C、D 作中心，星形值分别为十六、二十二、十四、二十。
+Using A, B, C, and D as hubs now gives sixteen, twenty-two, fourteen, and twenty.
+
+00:03:55.379 --> 00:03:57.117
+最小值在 C。
+C has the smallest value here.
+
+00:03:57.117 --> 00:04:02.142
+它说明中心重要，并没有证明某种布局算法最优。
+This shows hub dependence; it does not prove a placement algorithm is optimal.
+
+00:04:03.400 --> 00:04:13.175
+再看内部点的例子。A、B、C 支撑着八乘八的包围盒，让 D 从内部的四、四，移动到二
+、二。
+Next, A, B, and C support an eight by eight bounding box. Move the interior pin D
+from four, four to two, two.
+
+00:04:13.175 --> 00:04:16.450
+观察三把尺子，谁发生了变化。
+Watch the three rulers: which readings change?
+
+00:04:17.700 --> 00:04:23.062
+移动之后，半周长仍是十六，因为最外面的边界没有变。
+The half-perimeter stays sixteen because the outer boundaries did not change.
+
+00:04:23.062 --> 00:04:28.375
+完全图从五十六降到五十二，星形从二十四降到二十。
+The clique decreases from fifty-six to fifty-two, and the star from twenty-four to
+twenty.
+
+00:04:28.375 --> 00:04:31.225
+模型对位置的敏感性不同。
+Different models respond differently to the same move.
+
+00:04:32.500 --> 00:04:37.575
+如果把所有引脚挤到同一个位置，三个线长都变成零。
+Place every pin at one position and all three wirelengths become zero.
+
+00:04:37.575 --> 00:04:41.162
+但真实单元有面积，不能任意重叠。
+Real cells have area and cannot freely overlap.
+
+00:04:41.162 --> 00:04:45.638
+线长模型没有替你检查密度、重叠和时序。
+These measurements have not checked density, overlap, or timing.
+
+00:04:46.900 --> 00:04:52.675
+图上的折线只用于表示测量关系，不是最终的共享布线路径。
+The bent lines illustrate measurement relationships, not final shared routing paths.
+
+00:04:52.675 --> 00:05:00.800
+比较两个布局之前，先确认使用相同模型、相同距离、相同权重，以及相同的约束。
+Before comparing two placement candidates, align the model, the distance, the
+weights, and the constraints. Small numbers need a clear definition.
+
+00:05:02.067 --> 00:05:07.067
+回到网页，载入分散正方形，再载入标准正方形。
+On the website, load the spread square and then the compact reference square.
+
+00:05:07.067 --> 00:05:13.279
+三种读数从十六、六十四、三十二，变成四、十六、八。
+The readings change from sixteen, sixty-four, thirty-two to four, sixteen, eight.
+
+00:05:13.279 --> 00:05:16.842
+你也可以自己拖动一个点，实时检查。
+Drag a pin to investigate your own placement.
+
+00:05:18.100 --> 00:05:23.388
+试着更换星形中心，移动内部点，再完成六个实验任务。
+Change the star hub, move the interior pin, and try the six experiment tasks.
+
+00:05:23.388 --> 00:05:30.463
+每次先写下自己的预测，再读程序给出的每一项，解释变化是从哪里来的。
+Write down your prediction first. Then inspect each computed contribution and explain
+where the change came from.
+
+00:05:31.733 --> 00:05:38.296
+最后，用可下载的 Python 练习实现三个函数，和独立参考程序核对。
+Finally, implement the three functions in the downloadable Python exercise and
+compare with the independent reference.
+
+00:05:38.296 --> 00:05:45.196
+比记住四、十六、八更重要的，是你能说清楚，每个数字究竟量了什么。
+More important than remembering four, sixteen, and eight is explaining exactly what
+each number measures.

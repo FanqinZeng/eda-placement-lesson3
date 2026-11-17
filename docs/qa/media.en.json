@@ -11,8 +11,9 @@
   "peak_volume_db": -0.5,
   "subtitle_cues": 74,
   "subtitle_timing": "speech-service sentence boundaries",
+  "embedded_bilingual_subtitles": true,
   "scenes": 25,
-  "sha256": "b58fab0023251987320f6dddc53f92759ee5021e9e61c579dc1de5ed7f9ab110",
+  "sha256": "0abe159b400bbed7f19ab1d79782a9177dcc53d35e8e982b96ae117992b5becb",
   "limits": [
     "Automated stream/audio-level/timing validation and representative frame inspection; subjective human listening review remains open."
   ]

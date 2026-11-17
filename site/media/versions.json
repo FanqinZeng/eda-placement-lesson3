@@ -1,15 +1,20 @@
 {
   "zh": {
     "video": "media/lesson.zh.mp4",
-    "captions": "media/lesson.zh.vtt",
+    "captions": "media/lesson.zh.bilingual.vtt",
     "poster": "media/poster.jpg",
+    "captionTracks": {
+      "bilingual": "media/lesson.zh.bilingual.vtt",
+      "zh": "media/lesson.zh.zh.vtt",
+      "en": "media/lesson.zh.en.vtt"
+    },
     "transcript": "reading/#transcript-zh",
     "transcriptDownload": "downloads/transcript.md",
     "duration": 346.36666666666673,
     "voice": "zh-CN-XiaoxiaoNeural",
     "label": "中文",
-    "trackLabel": "中文字幕",
-    "trackLanguage": "zh-CN",
+    "trackLabel": "中英双语",
+    "trackLanguage": "mul",
     "chapters": [
       {
         "title": "问题",
@@ -153,15 +158,20 @@
   },
   "en": {
     "video": "media/lesson.en.mp4",
-    "captions": "media/lesson.en.vtt",
+    "captions": "media/lesson.en.bilingual.vtt",
     "poster": "media/poster.en.jpg",
+    "captionTracks": {
+      "bilingual": "media/lesson.en.bilingual.vtt",
+      "zh": "media/lesson.en.zh.vtt",
+      "en": "media/lesson.en.en.vtt"
+    },
     "transcript": "reading/#transcript-en",
     "transcriptDownload": "downloads/transcript.en.md",
     "duration": 349.7666666666667,
     "voice": "en-US-JennyNeural",
     "label": "English",
-    "trackLabel": "English captions",
-    "trackLanguage": "en-US",
+    "trackLabel": "中英双语",
+    "trackLanguage": "mul",
     "chapters": [
       {
         "title": "The problem",

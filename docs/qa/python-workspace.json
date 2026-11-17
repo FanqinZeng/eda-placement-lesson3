@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "engine": "actual CPython via vendored Pyodide in Worker",
+  "checks": [
+    "golden 4/16/8",
+    "edited pins 11/36/16",
+    "Python import and computation",
+    "text-only output",
+    "partial-line output",
+    "40k-character output cap",
+    "syntax/runtime errors",
+    "keyboard run",
+    "live debounce",
+    "infinite loop stop",
+    "5-second timeout",
+    "rerun after restart",
+    "exercise/reset",
+    "code persistence",
+    "bilingual UI",
+    "390/768/1440 no overflow",
+    "all runtime requests same origin",
+    "storage denied fallback",
+    "no page errors"
+  ]
+}

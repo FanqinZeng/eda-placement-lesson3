@@ -43,6 +43,7 @@ python3 scripts/serve.py --port 8000
 - 中文分镜：video/story.json；英文分镜：video/story.en.json。
 - 冻结语音与实际句子时间戳：video/audio/ 和 video/audio/en/。
 - 语音和渲染：scripts/speech.py、scripts/render-film.py，使用 --lang zh 或 --lang en。
+- 双语字幕：scripts/build-bilingual-captions.py --mux，在两部影片渲染完成后运行，生成同屏字幕并嵌入 MP4。
 
 完整运行命令、依赖与许可可在[课程源码与 README](https://github.com/FanqinZeng/eda-placement-lesson3)中直接查看。
 

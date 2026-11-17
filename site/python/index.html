@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Lab · Placement Lesson 3</title>
+<link rel="stylesheet" href="./workspace.css">
+</head>
+<body>
+<header><a id="back" href="../">← <span data-i18n="back">返回课程</span></a><label><span data-i18n="language">语言</span> <select id="language" aria-label="Language / 语言"><option value="zh">中文</option><option value="en">English</option></select></label></header>
+<main>
+<p class="eyebrow">PLACEMENT · LESSON 03</p>
+<h1 data-i18n="title">实时 Python 实验室</h1>
+<p class="intro" data-i18n="intro">亲手修改三种线网模型，用真正的 Python 立即验证结果。</p>
+<div class="notes"><p data-i18n="runtime">CPython 在浏览器的独立 Worker 中运行。首次加载约 12 MB 本地运行时；无需安装 Python。</p><p data-i18n="expected">黄金样例：BBox = 4，Clique = 16，Star = 8。坐标使用曼哈顿距离，Star 默认以第一个引脚为中心。</p></div>
+<div class="toolbar">
+<label class="example-label"><span data-i18n="example">代码样例</span><select id="example"><option value="reference" data-i18n="reference">参考实现 · 黄金样例</option><option value="asymmetric" data-i18n="asymmetric">非对称引脚</option><option value="exercise" data-i18n="exercise">练习模板</option></select></label>
+<button id="run" type="button" disabled data-i18n="run">运行</button>
+<button id="stop" type="button" data-i18n="stop">停止 / 重启</button>
+<button id="reset" type="button" data-i18n="reset">恢复所选样例</button>
+<label class="live"><input id="live" type="checkbox"><span data-i18n="live">实时运行</span></label>
+</div>
+<div class="workspace">
+<section><div class="panel-heading"><label for="code" data-i18n="editor">Python 编辑器</label><span>Ctrl / ⌘ + Enter</span></div><textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-describedby="editor-help"></textarea><p id="editor-help" data-i18n="help">可修改任意代码；Tab 插入四个空格。实时运行会在停止输入 0.7 秒后执行。每次执行使用新的变量空间。</p></section>
+<section class="results"><div class="panel-heading"><h2 data-i18n="output">运行结果</h2><span id="status" role="status" aria-live="polite"></span></div><h3 data-i18n="stdout">标准输出</h3><pre id="output" aria-label="Python stdout" tabindex="0"></pre><h3 data-i18n="errors">错误与诊断</h3><pre id="errors" aria-label="Python errors" tabindex="0"></pre><p id="execution-note" data-i18n="limits">单次运行限时 5 秒。停止或超时会重启解释器，并保留代码和已有输出。支持 Python 标准库；不预装第三方包。</p></section>
+</div>
+<p class="footnote" data-i18n="privacy">代码只在当前浏览器执行；编辑内容保存在本机浏览器。选择其他样例或恢复样例会替换编辑器内容。</p>
+</main><script type="module" src="./workspace.mjs"></script>
+</body></html>

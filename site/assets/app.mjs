@@ -1,3 +1,4 @@
+import './i18n.mjs';
 import {initLessonPlayer} from './player.mjs';
 import {evaluate,PRESETS} from './models.mjs';
 import {diagram} from './draw.mjs';
@@ -41,7 +42,7 @@ const tasks=[
 $('#challenges').innerHTML=tasks.map(([title,prompt,key],i)=>`<form class="exercise" data-task="${i}"><h4>${String(i+1).padStart(2,'0')} / ${title}</h4><p>${prompt}</p><button type="button" data-task-load="${i}">载入题目情境</button><label for="answer-${i}">我的预测数值</label><div class="answer-row"><input id="answer-${i}" type="number" step="any" required><button type="submit">提交检查</button></div><p class="feedback" role="status"></p></form>`).join('');
 document.querySelectorAll('[data-task-load]').forEach(b=>b.onclick=()=>{load(tasks[Number(b.dataset.taskLoad)][2],true);});
 function feedback(el,ok,text){el.textContent=(ok?'✓ ':'再想一想：')+text;el.className='feedback '+(ok?'good':'bad');}
-document.querySelectorAll('[data-task]').forEach(form=>form.onsubmit=e=>{e.preventDefault();const i=Number(form.dataset.task),t=tasks[i],actual=t[3](),prediction=Number(form.querySelector('input').value),expected=t[4];const ids=PRESETS[t[2]],context=t[0]==='移动内部点'?pins.every(p=>p.id==='D'||ids.some(q=>q.id===p.id&&q.x===p.x&&q.y===p.y)):pins.every(p=>ids.some(q=>q.id===p.id&&q.x===p.x&&q.y===p.y));const ok=(i===4||context)&&actual!==null&&Math.abs(actual-expected)<1e-8&&Math.abs(prediction-actual)<1e-8;feedback(form.querySelector('.feedback'),ok,ok?t[5]:!context||actual===null?'请先设置题目要求的坐标或中心，再提交。':`当前模型值是 ${fmt(actual)}。${t[5]}`);if(ok){progress['task'+i]=true;save();}});
+document.querySelectorAll('[data-task]').forEach(form=>form.onsubmit=e=>{e.preventDefault();const i=Number(form.dataset.task),t=tasks[i],actual=t[3](),prediction=Number(form.querySelector('input').value),expected=t[4];const ids=PRESETS[t[2]],context=i===3?pins.every(p=>p.id==='D'||ids.some(q=>q.id===p.id&&q.x===p.x&&q.y===p.y)):pins.every(p=>ids.some(q=>q.id===p.id&&q.x===p.x&&q.y===p.y));const ok=(i===4||context)&&actual!==null&&Math.abs(actual-expected)<1e-8&&Math.abs(prediction-actual)<1e-8;feedback(form.querySelector('.feedback'),ok,ok?t[5]:!context||actual===null?'请先设置题目要求的坐标或中心，再提交。':`当前模型值是 ${fmt(actual)}。${t[5]}`);if(ok){progress['task'+i]=true;save();}});
 const quiz=[
  ['HPWL 的“半”是什么意思？',['包围盒宽加高','包围盒的面积','四条边的总长'],0,'包围盒周长是 2(宽+高)，HPWL 只取宽+高。'],
  ['为什么 Clique 只算 i<j？',['忽略短边','每个无序引脚对只计一次','为了选出中心'],1,'AB 与 BA 是同一无向引脚对，不重复计数。'],
@@ -50,7 +51,7 @@ const quiz=[
  ['同图得到 4、16、8，能直接断言哪把尺子更好？',['4 最小所以 BBox 最好','16 最大所以 Clique 最差','不能，它们测量口径不同'],2,'应先对齐模型、权重和约束，再比较布局候选。'],
  ['本课 Star-from-A 的中心在哪里？',['任意虚拟中心','现有引脚 A','包围盒几何中心'],1,'本课固定使用现有 pin 作 hub。虚拟中心是另一个模型约定。']
 ];
-$('#quiz').innerHTML=quiz.map(([q,options],i)=>`<form class="exercise" data-quiz="${i}"><h4>${i+1}. ${q}</h4>${options.map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}" required style="width:auto;margin-right:8px">${o}</label>`).join('')}<button type="submit">检查与解释</button><p class="feedback" role="status"></p></form>`).join('');
+$('#quiz').innerHTML=quiz.map(([q,options],i)=>`<form class="exercise" data-quiz="${i}"><h4>${i+1}. ${q.replaceAll("<","&lt;")}</h4>${options.map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}" required style="width:auto;margin-right:8px">${o}</label>`).join('')}<button type="submit">检查与解释</button><p class="feedback" role="status"></p></form>`).join('');
 document.querySelectorAll('[data-quiz]').forEach(f=>f.onsubmit=e=>{e.preventDefault();const i=Number(f.dataset.quiz),v=Number(new FormData(f).get('q'+i)),ok=v===quiz[i][2];feedback(f.querySelector('.feedback'),ok,quiz[i][3]);if(ok){progress['quiz'+i]=true;save();}});
 $('#clear-progress').onclick=()=>{progress={};save();document.querySelectorAll('.feedback').forEach(p=>{p.textContent='';});document.querySelectorAll('.exercise').forEach(f=>f.reset());};
 initLessonPlayer();

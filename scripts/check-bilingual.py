@@ -21,9 +21,9 @@ with sync_playwright() as p:
     assert abs(video.evaluate('(v)=>v.currentTime')-mapped(time,'zh','en'))<.3
     assert video.evaluate('(v)=>v.paused') and video.evaluate('(v)=>v.playbackRate')==1.5
     assert video.evaluate('(v)=>v.currentSrc').endswith('lesson.en.mp4')
-    assert page.locator('#lesson-captions').get_attribute('srclang')=='en-US'
+    assert page.locator('#lesson-captions').get_attribute('srclang')=='mul'
     assert page.locator('#download-video').get_attribute('href')=='media/lesson.en.mp4'
-    assert page.locator('#download-captions').get_attribute('href')=='media/lesson.en.vtt'
+    assert page.locator('#download-captions').get_attribute('href')=='media/lesson.en.bilingual.vtt'
     assert page.locator('#video-transcript').get_attribute('href')=='reading/#transcript-en'
     video.evaluate('(v)=>{v.muted=true;return v.play()}');page.wait_for_function('!document.querySelector("video").paused')
     old=video.evaluate('(v)=>v.currentTime');page.locator('#voice-language').select_option('zh');page.wait_for_function('document.querySelector("video").dataset.language==="zh" && !document.querySelector("video").paused')
@@ -34,7 +34,7 @@ with sync_playwright() as p:
     assert video.evaluate('(v)=>v.currentSrc').endswith('lesson.en.mp4')
     page.locator('#chapters button').nth(3).click();target=versions['en']['chapters'][3]['start'];page.wait_for_function('(t)=>document.querySelector("video").currentTime>=t-.1',arg=target)
     page.wait_for_function('document.querySelector("#lesson-captions").track.cues?.length>0');video.evaluate('(v)=>v.pause()')
-    assert video.evaluate('(v)=>v.textTracks[0].language')=='en-US'
+    assert video.evaluate('(v)=>v.textTracks[0].language')=='mul'
     # Keep the viewer's caption preference across a voice switch.
     video.evaluate('(v)=>v.textTracks[0].mode="disabled"')
     page.locator('#voice-language').select_option('zh');page.wait_for_function('document.querySelector("video").dataset.language==="zh" && document.querySelector("video").readyState>=2')

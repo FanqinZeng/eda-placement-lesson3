@@ -14,7 +14,7 @@
     "matching captions and track language",
     "caption off preference preserved",
     "obsolete play rejection cannot overwrite current status",
-    "matching current video/subtitle/transcript download links",
+    "matching video/subtitle downloads and online transcript links",
     "language-specific chapter seeking",
     "mobile/desktop no horizontal overflow",
     "no uncaught JS errors"

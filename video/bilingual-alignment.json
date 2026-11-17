@@ -1,0 +1,932 @@
+[
+  {
+    "scene": 0,
+    "zh": "同一组引脚，为什么会有三种线长？",
+    "en": "How can the same set of pins have three different wirelengths?",
+    "timing": {
+      "zh": {
+        "start": 0.1,
+        "end": 3.475
+      },
+      "en": {
+        "start": 0.1,
+        "end": 3.8625
+      }
+    }
+  },
+  {
+    "scene": 0,
+    "zh": "这一课，我们用三把不同的尺子，看懂芯片布局里的网络模型。",
+    "en": "In this lesson, we use three different rulers to understand net models in chip placement.",
+    "timing": {
+      "zh": {
+        "start": 3.475,
+        "end": 9.225
+      },
+      "en": {
+        "start": 3.8625,
+        "end": 9.3
+      }
+    }
+  },
+  {
+    "scene": 1,
+    "zh": "在芯片里，一个网络可以同时连接多个引脚。",
+    "en": "A net on a chip can connect several pins at once.",
+    "timing": {
+      "zh": {
+        "start": 10.5,
+        "end": 14.7625
+      },
+      "en": {
+        "start": 10.566666666666666,
+        "end": 14.116666666666667
+      }
+    }
+  },
+  {
+    "scene": 1,
+    "zh": "连接关系已经确定，布局决定它们的位置。",
+    "en": "The connections are already specified; placement chooses their positions.",
+    "timing": {
+      "zh": {
+        "start": 14.7625,
+        "end": 18.875
+      },
+      "en": {
+        "start": 14.116666666666667,
+        "end": 18.96666666666667
+      }
+    }
+  },
+  {
+    "scene": 1,
+    "zh": "估计线长之前，我们还需要选定测量模型。",
+    "en": "Before estimating wirelength, we must also choose a measurement model.",
+    "timing": {
+      "zh": {
+        "start": 18.875,
+        "end": 22.950000000000003
+      },
+      "en": {
+        "start": 18.96666666666667,
+        "end": 23.616666666666667
+      }
+    }
+  },
+  {
+    "scene": 2,
+    "zh": "先用四个可以手算的点。A、B、C、D，放在边长为二的正方形四角。",
+    "en": "Start with four pins at the corners of a square of side two.",
+    "timing": {
+      "zh": {
+        "start": 24.200000000000003,
+        "end": 31.637500000000003
+      },
+      "en": {
+        "start": 24.866666666666667,
+        "end": 28.791666666666664
+      }
+    }
+  },
+  {
+    "scene": 2,
+    "zh": "全课用同一个例子，比较包围盒、完全图和星形模型。",
+    "en": "We use these same coordinates throughout, comparing a bounding box, a clique, and a star.",
+    "timing": {
+      "zh": {
+        "start": 31.637500000000003,
+        "end": 36.95
+      },
+      "en": {
+        "start": 28.791666666666664,
+        "end": 34.579166666666666
+      }
+    }
+  },
+  {
+    "scene": 3,
+    "zh": "本课使用曼哈顿距离。它不是两点间的直线距离，而是横向差的绝对值，加竖向差的绝对值。",
+    "en": "We use Manhattan distance, rather than straight-line distance. Add the absolute horizontal difference to the absolute vertical difference.",
+    "timing": {
+      "zh": {
+        "start": 38.233333333333334,
+        "end": 47.20833333333333
+      },
+      "en": {
+        "start": 35.833333333333336,
+        "end": 44.733333333333334
+      }
+    }
+  },
+  {
+    "scene": 3,
+    "zh": "图中的折线是测量示意。",
+    "en": "The bent lines in our drawings illustrate that measurement.",
+    "timing": {
+      "zh": {
+        "start": 47.20833333333333,
+        "end": 50.02083333333333
+      },
+      "en": {
+        "start": 44.733333333333334,
+        "end": 48.34583333333333
+      }
+    }
+  },
+  {
+    "scene": 4,
+    "zh": "从左下角的 A 到右上角的 D，横向走二，竖向也走二，所以距离为四。",
+    "en": "From A at the lower left to D at the upper right, move two units horizontally and two vertically. Their Manhattan distance is four.",
+    "timing": {
+      "zh": {
+        "start": 51.300000000000004,
+        "end": 58.25
+      },
+      "en": {
+        "start": 49.63333333333333,
+        "end": 58.12083333333333
+      }
+    }
+  },
+  {
+    "scene": 4,
+    "zh": "先把这把小尺子固定，后面的求和才有相同口径。",
+    "en": "Every model here uses this same basic distance.",
+    "timing": {
+      "zh": {
+        "start": 58.25,
+        "end": 63.1625
+      },
+      "en": {
+        "start": 58.12083333333333,
+        "end": 61.63333333333333
+      }
+    }
+  },
+  {
+    "scene": 5,
+    "zh": "第一种模型，先找到所有引脚的最小包围盒。",
+    "en": "The first model finds the smallest box containing all pins.",
+    "timing": {
+      "zh": {
+        "start": 64.43333333333334,
+        "end": 68.59583333333335
+      },
+      "en": {
+        "start": 62.93333333333333,
+        "end": 67.24583333333332
+      }
+    }
+  },
+  {
+    "scene": 5,
+    "zh": "最左、最右确定宽，最下、最上确定高。",
+    "en": "The leftmost and rightmost pins determine its width. The lowest and highest determine its height.",
+    "timing": {
+      "zh": {
+        "start": 68.59583333333335,
+        "end": 73.05833333333334
+      },
+      "en": {
+        "start": 67.24583333333332,
+        "end": 73.92083333333333
+      }
+    }
+  },
+  {
+    "scene": 5,
+    "zh": "半周长线长，就是宽加高。",
+    "en": "Add width and height.",
+    "timing": {
+      "zh": {
+        "start": 73.05833333333334,
+        "end": 76.03333333333335
+      },
+      "en": {
+        "start": 73.92083333333333,
+        "end": 75.88333333333333
+      }
+    }
+  },
+  {
+    "scene": 6,
+    "zh": "在这个正方形上，宽是二，高也是二，半周长是四。注意，是半周长。",
+    "en": "For our square, width and height are both two, giving a half-perimeter wirelength of four.",
+    "timing": {
+      "zh": {
+        "start": 77.30000000000001,
+        "end": 84.61250000000001
+      },
+      "en": {
+        "start": 77.16666666666666,
+        "end": 83.19166666666666
+      }
+    }
+  },
+  {
+    "scene": 6,
+    "zh": "沿着四条边绕完整一圈会得到八，那不是这里的指标。",
+    "en": "Walking around all four sides gives eight. That is the full perimeter, not this metric.",
+    "timing": {
+      "zh": {
+        "start": 84.61250000000001,
+        "end": 89.75000000000001
+      },
+      "en": {
+        "start": 83.19166666666666,
+        "end": 89.76666666666667
+      }
+    }
+  },
+  {
+    "scene": 7,
+    "zh": "无论有多少引脚，包围盒只需要四个极值。",
+    "en": "The bounding box needs only four extreme coordinates.",
+    "timing": {
+      "zh": {
+        "start": 91.00000000000001,
+        "end": 95.12500000000001
+      },
+      "en": {
+        "start": 91.06666666666666,
+        "end": 94.69166666666666
+      }
+    }
+  },
+  {
+    "scene": 7,
+    "zh": "扫描每个引脚一次，就能得到结果。",
+    "en": "Scan each pin once to find them, so the computation grows linearly with the number of pins.",
+    "timing": {
+      "zh": {
+        "start": 95.12500000000001,
+        "end": 98.66250000000002
+      },
+      "en": {
+        "start": 94.69166666666666,
+        "end": 100.56666666666666
+      }
+    }
+  },
+  {
+    "scene": 7,
+    "zh": "所以它计算便宜，适合快速估计网络的线长。",
+    "en": "It is a cheap wirelength estimate.",
+    "timing": {
+      "zh": {
+        "start": 98.66250000000002,
+        "end": 103.36250000000003
+      },
+      "en": {
+        "start": 100.56666666666666,
+        "end": 103.25416666666666
+      }
+    }
+  },
+  {
+    "scene": 8,
+    "zh": "第二种模型叫完全图模型，也叫克利克模型。它把每对不同引脚都连起来。",
+    "en": "The second model is a clique: connect every pair of distinct pins and add their Manhattan distances.",
+    "timing": {
+      "zh": {
+        "start": 104.63333333333335,
+        "end": 111.77083333333336
+      },
+      "en": {
+        "start": 104.53333333333333,
+        "end": 111.04583333333333
+      }
+    }
+  },
+  {
+    "scene": 8,
+    "zh": "四个引脚共有六对，同一对只计算一次。",
+    "en": "Four pins give six unordered pairs. Count each pair exactly once.",
+    "timing": {
+      "zh": {
+        "start": 111.77083333333336,
+        "end": 115.62083333333337
+      },
+      "en": {
+        "start": 111.04583333333333,
+        "end": 116.80833333333334
+      }
+    }
+  },
+  {
+    "scene": 9,
+    "zh": "按字母顺序，先算 A 到 B、A 到 C、A 到 D，再算 B 到 C、B 到 D，最后算 C 到 D。",
+    "en": "In alphabetical order, measure A to B, A to C, and A to D; then B to C, B to D, and C to D.",
+    "timing": {
+      "zh": {
+        "start": 116.90000000000002,
+        "end": 125.81250000000003
+      },
+      "en": {
+        "start": 118.06666666666666,
+        "end": 126.10416666666667
+      }
+    }
+  },
+  {
+    "scene": 9,
+    "zh": "六个距离依次是二、二、四、四、二、二。",
+    "en": "The six distances are two, two, four, four, two, and two.",
+    "timing": {
+      "zh": {
+        "start": 125.81250000000003,
+        "end": 130.68750000000003
+      },
+      "en": {
+        "start": 126.10416666666667,
+        "end": 131.89166666666668
+      }
+    }
+  },
+  {
+    "scene": 10,
+    "zh": "把六项相加，完全图模型的总和是十六。",
+    "en": "Adding these six terms gives sixteen.",
+    "timing": {
+      "zh": {
+        "start": 131.9666666666667,
+        "end": 135.9916666666667
+      },
+      "en": {
+        "start": 133.16666666666666,
+        "end": 136.07916666666665
+      }
+    }
+  },
+  {
+    "scene": 10,
+    "zh": "不要把 A 到 B 和 B 到 A 各加一遍，否则会重复计数，结果变成三十二。",
+    "en": "Do not count both A to B and B to A. Those names describe the same unordered pair; double counting would incorrectly produce thirty-two.",
+    "timing": {
+      "zh": {
+        "start": 135.9916666666667,
+        "end": 142.9416666666667
+      },
+      "en": {
+        "start": 136.07916666666665,
+        "end": 145.04166666666666
+      }
+    }
+  },
+  {
+    "scene": 11,
+    "zh": "当引脚数为 p，完全图有 p 乘 p 减一，再除以二条边。",
+    "en": "With p pins, a clique has p times p minus one, divided by two edges.",
+    "timing": {
+      "zh": {
+        "start": 144.23333333333338,
+        "end": 149.94583333333338
+      },
+      "en": {
+        "start": 146.29999999999998,
+        "end": 151.7875
+      }
+    }
+  },
+  {
+    "scene": 11,
+    "zh": "这里使用没有归一化的曼哈顿距离总和，不是后续二次布局里的平方距离目标。",
+    "en": "Here we sum unnormalized Manhattan distances. This is not the squared-distance objective used in quadratic placement.",
+    "timing": {
+      "zh": {
+        "start": 149.94583333333338,
+        "end": 156.85833333333338
+      },
+      "en": {
+        "start": 151.7875,
+        "end": 159.575
+      }
+    }
+  },
+  {
+    "scene": 12,
+    "zh": "第三种是星形模型。",
+    "en": "The third model is a star.",
+    "timing": {
+      "zh": {
+        "start": 158.13333333333338,
+        "end": 160.3708333333334
+      },
+      "en": {
+        "start": 160.86666666666665,
+        "end": 163.24166666666665
+      }
+    }
+  },
+  {
+    "scene": 12,
+    "zh": "先选一个现有引脚作中心，再把它连到其他引脚。",
+    "en": "Choose one existing pin as a hub and connect it to every other pin.",
+    "timing": {
+      "zh": {
+        "start": 160.3708333333334,
+        "end": 164.9708333333334
+      },
+      "en": {
+        "start": 163.24166666666665,
+        "end": 167.60416666666666
+      }
+    }
+  },
+  {
+    "scene": 12,
+    "zh": "本课把 A 作为中心，没有额外加入虚拟节点。",
+    "en": "Our example uses A. We do not introduce a virtual center.",
+    "timing": {
+      "zh": {
+        "start": 164.9708333333334,
+        "end": 169.2708333333334
+      },
+      "en": {
+        "start": 167.60416666666666,
+        "end": 172.67916666666665
+      }
+    }
+  },
+  {
+    "scene": 13,
+    "zh": "中心是 A 时，只需要 A 到 B、A 到 C、A 到 D 三条辐条。",
+    "en": "With A as the hub, the spokes are A to B, A to C, and A to D.",
+    "timing": {
+      "zh": {
+        "start": 170.56666666666672,
+        "end": 176.64166666666674
+      },
+      "en": {
+        "start": 173.96666666666664,
+        "end": 178.92916666666665
+      }
+    }
+  },
+  {
+    "scene": 13,
+    "zh": "距离分别是二、二、四，总和为八。",
+    "en": "Their lengths are two, two, and four, totaling eight.",
+    "timing": {
+      "zh": {
+        "start": 176.64166666666674,
+        "end": 180.64166666666674
+      },
+      "en": {
+        "start": 178.92916666666665,
+        "end": 183.35416666666666
+      }
+    }
+  },
+  {
+    "scene": 13,
+    "zh": "其余引脚之间的距离不进入这个和。",
+    "en": "Other pin pairs do not enter this sum.",
+    "timing": {
+      "zh": {
+        "start": 180.64166666666674,
+        "end": 184.02916666666673
+      },
+      "en": {
+        "start": 183.35416666666666,
+        "end": 186.32916666666665
+      }
+    }
+  },
+  {
+    "scene": 14,
+    "zh": "星形模型只有 p 减一条辐条，计算量与引脚数成正比。",
+    "en": "A star has only p minus one spokes, so its computation is linear in the pin count.",
+    "timing": {
+      "zh": {
+        "start": 185.30000000000004,
+        "end": 190.81250000000006
+      },
+      "en": {
+        "start": 187.59999999999997,
+        "end": 193.37499999999997
+      }
+    }
+  },
+  {
+    "scene": 14,
+    "zh": "但不要忘记，选择哪个中心，也是模型定义的一部分。",
+    "en": "But the hub is part of the model definition.",
+    "timing": {
+      "zh": {
+        "start": 190.81250000000006,
+        "end": 195.80000000000004
+      },
+      "en": {
+        "start": 193.37499999999997,
+        "end": 196.36249999999998
+      }
+    }
+  },
+  {
+    "scene": 14,
+    "zh": "报告数字时要写清楚。",
+    "en": "Always name it when reporting the result.",
+    "timing": {
+      "zh": {
+        "start": 195.80000000000004,
+        "end": 198.31250000000006
+      },
+      "en": {
+        "start": 196.36249999999998,
+        "end": 199.17499999999998
+      }
+    }
+  },
+  {
+    "scene": 15,
+    "zh": "现在，同一组点得到了四、十六、八。",
+    "en": "The same pins now give four, sixteen, and eight.",
+    "timing": {
+      "zh": {
+        "start": 199.60000000000005,
+        "end": 203.70000000000005
+      },
+      "en": {
+        "start": 200.46666666666664,
+        "end": 204.56666666666663
+      }
+    }
+  },
+  {
+    "scene": 15,
+    "zh": "连接没有改变，坐标也没有改变，只是求和方式不同。",
+    "en": "Neither their coordinates nor their connections changed. Only the measurement changed.",
+    "timing": {
+      "zh": {
+        "start": 203.70000000000005,
+        "end": 208.72500000000005
+      },
+      "en": {
+        "start": 204.56666666666663,
+        "end": 210.46666666666664
+      }
+    }
+  },
+  {
+    "scene": 15,
+    "zh": "这些数不能直接用来给模型排优劣。",
+    "en": "These numbers alone cannot rank which model is better.",
+    "timing": {
+      "zh": {
+        "start": 208.72500000000005,
+        "end": 212.35000000000005
+      },
+      "en": {
+        "start": 210.46666666666664,
+        "end": 214.10416666666666
+      }
+    }
+  },
+  {
+    "scene": 16,
+    "zh": "标准正方形里，四个角作星形中心，结果恰好一样。",
+    "en": "For the square, choosing any corner as the star hub happens to give the same answer.",
+    "timing": {
+      "zh": {
+        "start": 213.63333333333338,
+        "end": 218.6583333333334
+      },
+      "en": {
+        "start": 215.36666666666665,
+        "end": 220.52916666666664
+      }
+    }
+  },
+  {
+    "scene": 16,
+    "zh": "这个现象来自对称性。",
+    "en": "That is a consequence of symmetry.",
+    "timing": {
+      "zh": {
+        "start": 218.6583333333334,
+        "end": 221.04583333333338
+      },
+      "en": {
+        "start": 220.52916666666664,
+        "end": 223.25416666666666
+      }
+    }
+  },
+  {
+    "scene": 16,
+    "zh": "换成一张不对称的图，我们就能看见中心的影响。",
+    "en": "An asymmetric example reveals why the hub matters.",
+    "timing": {
+      "zh": {
+        "start": 221.04583333333338,
+        "end": 225.50833333333338
+      },
+      "en": {
+        "start": 223.25416666666666,
+        "end": 227.02916666666664
+      }
+    }
+  },
+  {
+    "scene": 17,
+    "zh": "在这组坐标里，A、B、C、D 作中心，星形值分别为十六、二十二、十四、二十。",
+    "en": "Using A, B, C, and D as hubs now gives sixteen, twenty-two, fourteen, and twenty.",
+    "timing": {
+      "zh": {
+        "start": 226.7666666666667,
+        "end": 235.37916666666672
+      },
+      "en": {
+        "start": 228.29999999999998,
+        "end": 235.475
+      }
+    }
+  },
+  {
+    "scene": 17,
+    "zh": "最小值在 C。",
+    "en": "C has the smallest value here.",
+    "timing": {
+      "zh": {
+        "start": 235.37916666666672,
+        "end": 237.1166666666667
+      },
+      "en": {
+        "start": 235.475,
+        "end": 238.1625
+      }
+    }
+  },
+  {
+    "scene": 17,
+    "zh": "它说明中心重要，并没有证明某种布局算法最优。",
+    "en": "This shows hub dependence; it does not prove a placement algorithm is optimal.",
+    "timing": {
+      "zh": {
+        "start": 237.1166666666667,
+        "end": 242.1416666666667
+      },
+      "en": {
+        "start": 238.1625,
+        "end": 243.08749999999998
+      }
+    }
+  },
+  {
+    "scene": 18,
+    "zh": "再看内部点的例子。A、B、C 支撑着八乘八的包围盒，让 D 从内部的四、四，移动到二、二。",
+    "en": "Next, A, B, and C support an eight by eight bounding box. Move the interior pin D from four, four to two, two.",
+    "timing": {
+      "zh": {
+        "start": 243.40000000000003,
+        "end": 253.17500000000004
+      },
+      "en": {
+        "start": 244.36666666666665,
+        "end": 254.09166666666664
+      }
+    }
+  },
+  {
+    "scene": 18,
+    "zh": "观察三把尺子，谁发生了变化。",
+    "en": "Watch the three rulers: which readings change?",
+    "timing": {
+      "zh": {
+        "start": 253.17500000000004,
+        "end": 256.45000000000005
+      },
+      "en": {
+        "start": 254.09166666666664,
+        "end": 257.56666666666666
+      }
+    }
+  },
+  {
+    "scene": 19,
+    "zh": "移动之后，半周长仍是十六，因为最外面的边界没有变。",
+    "en": "The half-perimeter stays sixteen because the outer boundaries did not change.",
+    "timing": {
+      "zh": {
+        "start": 257.70000000000005,
+        "end": 263.0625
+      },
+      "en": {
+        "start": 258.8666666666667,
+        "end": 263.54166666666663
+      }
+    }
+  },
+  {
+    "scene": 19,
+    "zh": "完全图从五十六降到五十二，星形从二十四降到二十。",
+    "en": "The clique decreases from fifty-six to fifty-two, and the star from twenty-four to twenty.",
+    "timing": {
+      "zh": {
+        "start": 263.0625,
+        "end": 268.375
+      },
+      "en": {
+        "start": 263.54166666666663,
+        "end": 269.19166666666666
+      }
+    }
+  },
+  {
+    "scene": 19,
+    "zh": "模型对位置的敏感性不同。",
+    "en": "Different models respond differently to the same move.",
+    "timing": {
+      "zh": {
+        "start": 268.375,
+        "end": 271.225
+      },
+      "en": {
+        "start": 269.19166666666666,
+        "end": 272.70416666666665
+      }
+    }
+  },
+  {
+    "scene": 20,
+    "zh": "如果把所有引脚挤到同一个位置，三个线长都变成零。",
+    "en": "Place every pin at one position and all three wirelengths become zero.",
+    "timing": {
+      "zh": {
+        "start": 272.50000000000006,
+        "end": 277.57500000000005
+      },
+      "en": {
+        "start": 273.9666666666667,
+        "end": 278.76666666666665
+      }
+    }
+  },
+  {
+    "scene": 20,
+    "zh": "但真实单元有面积，不能任意重叠。",
+    "en": "Real cells have area and cannot freely overlap.",
+    "timing": {
+      "zh": {
+        "start": 277.57500000000005,
+        "end": 281.1625
+      },
+      "en": {
+        "start": 278.76666666666665,
+        "end": 282.3041666666667
+      }
+    }
+  },
+  {
+    "scene": 20,
+    "zh": "线长模型没有替你检查密度、重叠和时序。",
+    "en": "These measurements have not checked density, overlap, or timing.",
+    "timing": {
+      "zh": {
+        "start": 281.1625,
+        "end": 285.63750000000005
+      },
+      "en": {
+        "start": 282.3041666666667,
+        "end": 286.76666666666665
+      }
+    }
+  },
+  {
+    "scene": 21,
+    "zh": "图上的折线只用于表示测量关系，不是最终的共享布线路径。",
+    "en": "The bent lines illustrate measurement relationships, not final shared routing paths.",
+    "timing": {
+      "zh": {
+        "start": 286.90000000000003,
+        "end": 292.675
+      },
+      "en": {
+        "start": 288.03333333333336,
+        "end": 293.3958333333333
+      }
+    }
+  },
+  {
+    "scene": 21,
+    "zh": "比较两个布局之前，先确认使用相同模型、相同距离、相同权重，以及相同的约束。",
+    "en": "Before comparing two placement candidates, align the model, the distance, the weights, and the constraints. Small numbers need a clear definition.",
+    "timing": {
+      "zh": {
+        "start": 292.675,
+        "end": 300.8
+      },
+      "en": {
+        "start": 293.3958333333333,
+        "end": 303.2583333333333
+      }
+    }
+  },
+  {
+    "scene": 22,
+    "zh": "回到网页，载入分散正方形，再载入标准正方形。",
+    "en": "On the website, load the spread square and then the compact reference square.",
+    "timing": {
+      "zh": {
+        "start": 302.0666666666667,
+        "end": 307.0666666666667
+      },
+      "en": {
+        "start": 304.53333333333336,
+        "end": 309.2583333333333
+      }
+    }
+  },
+  {
+    "scene": 22,
+    "zh": "三种读数从十六、六十四、三十二，变成四、十六、八。",
+    "en": "The readings change from sixteen, sixty-four, thirty-two to four, sixteen, eight.",
+    "timing": {
+      "zh": {
+        "start": 307.0666666666667,
+        "end": 313.2791666666667
+      },
+      "en": {
+        "start": 309.2583333333333,
+        "end": 315.54583333333335
+      }
+    }
+  },
+  {
+    "scene": 22,
+    "zh": "你也可以自己拖动一个点，实时检查。",
+    "en": "Drag a pin to investigate your own placement.",
+    "timing": {
+      "zh": {
+        "start": 313.2791666666667,
+        "end": 316.8416666666667
+      },
+      "en": {
+        "start": 315.54583333333335,
+        "end": 318.85833333333335
+      }
+    }
+  },
+  {
+    "scene": 23,
+    "zh": "试着更换星形中心，移动内部点，再完成六个实验任务。",
+    "en": "Change the star hub, move the interior pin, and try the six experiment tasks.",
+    "timing": {
+      "zh": {
+        "start": 318.1000000000001,
+        "end": 323.38750000000005
+      },
+      "en": {
+        "start": 320.1333333333334,
+        "end": 325.70833333333337
+      }
+    }
+  },
+  {
+    "scene": 23,
+    "zh": "每次先写下自己的预测，再读程序给出的每一项，解释变化是从哪里来的。",
+    "en": "Write down your prediction first. Then inspect each computed contribution and explain where the change came from.",
+    "timing": {
+      "zh": {
+        "start": 323.38750000000005,
+        "end": 330.46250000000003
+      },
+      "en": {
+        "start": 325.70833333333337,
+        "end": 333.40833333333336
+      }
+    }
+  },
+  {
+    "scene": 24,
+    "zh": "最后，用可下载的 Python 练习实现三个函数，和独立参考程序核对。",
+    "en": "Finally, implement the three functions in the downloadable Python exercise and compare with the independent reference.",
+    "timing": {
+      "zh": {
+        "start": 331.7333333333334,
+        "end": 338.2958333333334
+      },
+      "en": {
+        "start": 334.70000000000005,
+        "end": 341.8
+      }
+    }
+  },
+  {
+    "scene": 24,
+    "zh": "比记住四、十六、八更重要的，是你能说清楚，每个数字究竟量了什么。",
+    "en": "More important than remembering four, sixteen, and eight is explaining exactly what each number measures.",
+    "timing": {
+      "zh": {
+        "start": 338.2958333333334,
+        "end": 345.1958333333334
+      },
+      "en": {
+        "start": 341.8,
+        "end": 348.57500000000005
+      }
+    }
+  }
+]

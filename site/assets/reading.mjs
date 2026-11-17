@@ -1,3 +1,4 @@
+import './i18n.mjs';
 let timer;
 document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{
  const code=document.getElementById(button.dataset.copy),status=document.getElementById('copy-status');

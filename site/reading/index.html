@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f1e9"><title>学习资料在线阅读 · Placement Lesson 03</title><meta name="description" content="直接在线阅读 Python 练习、参考实现、坐标表、中文讲义、中英文视频文字稿和复现说明。"><link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/reading.css"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"></head><body><a class="skip" href="#main">跳到正文</a><header><div class="wrap top"><a class="brand" href="../"><span class="brand-mark">⌗</span> Placement <em>03</em></a><nav aria-label="阅读导航"><a href="../#resources">返回课程</a><a href="../#lab">互动实验</a><a href="#notes">读讲义</a><a href="#transcript-zh">读文字稿</a></nav></div></header><main id="main"><div class="wrap reading-hero"><p class="eyebrow">PLACEMENT / 03 / THE READING ROOM</p><h1>把资料摊开，<br>慢慢读。</h1><p class="lead">公式、代码、数据和讲解，都在这一页。<br>先在线阅读，需要时再复制或下载。</p><a class="section-link" href="../#lab">读完一个例子，回实验台试试 →</a></div><div class="wrap reading-layout"><aside class="reading-index"><p class="eyebrow">本页目录</p><nav aria-label="学习资料目录"><a href="#exercise">Python 练习</a><a href="#reference">参考实现</a><a href="#data">标准坐标</a><a href="#notes">中文讲义</a><a href="#transcript-zh">中文文字稿</a><a href="#transcript-en">English transcript</a><a href="#reproduce">源码与复现</a></nav><p class="note">代码和正文已完整载入，关闭 JavaScript 也能阅读。</p></aside><div class="reading-content"><section id="exercise" class="reading-section"><p class="eyebrow">01 / READ ONLINE</p><h2>Python 练习：自己实现三把尺子</h2><p>直接阅读并复制下面的模板。补齐三个函数，标准四引脚的结果应为 <strong>4 / 16 / 8</strong>。<code>NotImplementedError</code> 是留给你完成的位置，不是网页出错。</p><div class="code-heading"><span>PYTHON / exercise.py</span><button type="button" class="code-copy" data-copy="exercise-code">复制代码</button></div><pre><code id="exercise-code">&quot;&quot;&quot;Complete the three functions. Golden A(2,2), B(4,2), C(2,4), D(4,4): 4/16/8.
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f1e9"><title>学习资料在线阅读 · Placement Lesson 03</title><meta name="description" content="直接在线阅读 Python 练习、参考实现、坐标表、中文讲义、中英文视频文字稿和复现说明。"><link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/reading.css"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"></head><body><a class="skip" href="#main">跳到正文</a><header><div class="wrap top"><a class="brand" href="../"><span class="brand-mark">⌗</span> Placement <em>03</em></a><nav aria-label="阅读导航"><a href="../#resources">返回课程</a><a href="../#lab">互动实验</a><a href="#notes">读讲义</a><a href="#transcript-zh">读文字稿</a></nav></div></header><main id="main"><div class="wrap reading-hero"><p class="eyebrow">PLACEMENT / 03 / THE READING ROOM</p><h1>把资料摊开，<br>慢慢读。</h1><p class="lead">公式、代码、数据和讲解，都在这一页。<br>先在线阅读，需要时再复制或下载。</p><a class="section-link" href="../#lab">读完一个例子，回实验台试试 →</a></div><div class="wrap reading-layout"><aside class="reading-index"><p class="eyebrow">本页目录</p><nav aria-label="学习资料目录"><a href="#exercise">Python 练习</a><a href="#reference">参考实现</a><a href="#data">标准坐标</a><a href="#notes">中文讲义</a><a href="#transcript-zh">中文文字稿</a><a href="#transcript-en">English transcript</a><a href="#reproduce">源码与复现</a></nav><p class="note">代码和正文已完整载入，关闭 JavaScript 也能阅读。</p></aside><div class="reading-content"><section id="exercise" class="reading-section"><p class="eyebrow">01 / READ ONLINE</p><h2>Python 练习：自己实现三把尺子</h2><p><a href="../python/">在浏览器中编辑并运行 Python →</a></p><p>直接阅读并复制下面的模板。补齐三个函数，标准四引脚的结果应为 <strong>4 / 16 / 8</strong>。<code>NotImplementedError</code> 是留给你完成的位置，不是网页出错。</p><div class="code-heading"><span>PYTHON / exercise.py</span><button type="button" class="code-copy" data-copy="exercise-code">复制代码</button></div><pre><code id="exercise-code">&quot;&quot;&quot;Complete the three functions. Golden A(2,2), B(4,2), C(2,4), D(4,4): 4/16/8.
 Each pin: {id: str, x: float, y: float}. Use Manhattan distances; hub=&#x27;A&#x27;.
 Compare your answers with reference.py. No third-party packages required.
 &quot;&quot;&quot;
@@ -119,7 +119,7 @@ if __name__==&#x27;__main__&#x27;:print(json.dumps([evaluate(p) for p in json.lo
     }
   ]
 }
-</code></pre><p class="optional"><a href="../downloads/examples.json" download>可选：下载原文件 ↓</a></p></details></section><section id="notes" class="reading-section"><p class="eyebrow">04 / READ ONLINE</p><h2>完整中文讲义</h2><h3>同一组引脚，三把不同的尺子</h3>
+</code></pre><p class="optional"><a href="../downloads/examples.json" download>可选：下载原文件 ↓</a></p></details></section><section id="notes" class="reading-section"><p class="eyebrow">04 / READ ONLINE</p><h2>完整中文讲义</h2><div data-site-language="zh"><h3>同一组引脚，三把不同的尺子</h3>
 <p>Placement · Lesson 03 · FanqinZeng</p>
 <h4>目标和约定</h4>
 <p>学会从坐标求 BBox/HPWL、Clique 和 Star，说明每一项来自哪里，识别三种模型的限制。本课使用单个 net 的单位权重、二维曼哈顿距离。四个引脚均可移动，这是测量实验，不是带固定单元约束的布局优化器。</p>
@@ -147,7 +147,35 @@ if __name__==&#x27;__main__&#x27;:print(json.dumps([evaluate(p) for p in json.lo
 <p>完成 exercise.py 的三个函数，再用 reference.py 核对。输入为列表，每个 pin 有 id、x、y；名字不能重复，坐标必须是有限数。空或单 pin net 的结果为零；有 pin 时 hub 必须属于输入。两个 pin 时三模型数值相同。</p>
 <p>检查平移不变性、统一正比例缩放，以及所有现有引脚作中心的 Star 总和等于两倍 Clique。程序还应拒绝缺失坐标、NaN、重复名字和非法中心。</p>
 <h4>来源与许可</h4>
-<p>教材依据 Yongfu Li 的 eda-learning / module01-03-net-models 和 placement-core.js。对应关系依据课程顺序，issue #26 本文为空。新讲解与练习 CC BY 4.0，新代码 MIT。逐课参考与字体等第三方来源见仓库 THIRD_PARTY_NOTICES.md。</p><p class="optional"><a href="../downloads/lesson.md" download>可选：下载 Markdown 讲义 ↓</a></p></section><section id="transcript-zh" class="reading-section" lang="zh-CN"><p class="eyebrow">05 / READ ONLINE</p><h2>视频文字稿 · 中文</h2><p><a href="../#film">返回双语影片 →</a></p><h3>同一组引脚，三把尺子</h3>
+<p>教材依据 Yongfu Li 的 eda-learning / module01-03-net-models 和 placement-core.js。对应关系依据课程顺序，issue #26 本文为空。新讲解与练习 CC BY 4.0，新代码 MIT。逐课参考与字体等第三方来源见仓库 THIRD_PARTY_NOTICES.md。</p></div><div data-site-language="en" lang="en" hidden><h3>One set of pins, three different rulers</h3>
+<p>Placement · Lesson 03 · FanqinZeng</p>
+<h4>Goals and conventions</h4>
+<p>Compute BBox/HPWL, Clique, and Star from coordinates, explain every contribution, and recognize the limitations of each model. We use a single net with unit weights and two-dimensional Manhattan distance. All four pins can move: this is a measurement experiment, rather than a placement optimizer with fixed-cell constraints.</p>
+<p>The origin is at bottom left, with y pointing up. The Manhattan distance between two pins is |xᵢ−xⱼ|+|yᵢ−yⱼ|. The bent lines illustrate this distance; they are not actual shared routing.</p>
+<h4>Three models</h4>
+<ol><li><strong>BBox / HPWL</strong>: find the minimum and maximum coordinates on each axis. The result is (max x−min x)+(max y−min y). This is the bounding box’s half-perimeter, rather than its full perimeter. A single scan of p pins takes O(p) time.</li><li><strong>Clique</strong>: sum the Manhattan distance of every unordered pair i&lt;j. There are p(p−1)/2 pairs, giving O(p²) time. This lesson uses neither normalization nor squared distances.</li><li><strong>Star-from-h</strong>: choose an existing pin h as the hub and sum its distances to the other p−1 pins. This takes O(p) time. The choice of h is part of the definition; a virtual hub is a separate convention.</li></ol>
+<h4>A standard example you can calculate by hand</h4>
+<div class="table-scroll"><table><thead><tr><th>Pin</th><th>x</th><th>y</th></tr></thead><tbody>
+<tr><td>A</td><td>2</td><td>2</td></tr>
+<tr><td>B</td><td>4</td><td>2</td></tr>
+<tr><td>C</td><td>2</td><td>4</td></tr>
+<tr><td>D</td><td>4</td><td>4</td></tr>
+</tbody></table></div>
+<p>HPWL = 2+2 = <strong>4</strong>.</p>
+<p>The six Clique pairs are AB=2, AC=2, AD=4, BC=4, BD=2, and CD=2, for a total of <strong>16</strong>. Count AB and BA as one pair.</p>
+<p>Star-from-A = AB+AC+AD = 2+2+4 = <strong>8</strong>.</p>
+<h4>Three counterexamples</h4>
+<p><strong>Hub dependence.</strong> For A(0,0), B(6,0), C(1,2), and D(2,5), HPWL=11 and Clique=36. Using hubs A/B/C/D gives Star values of 16/22/14/20. The four equal hub values in the symmetric square do not imply that changing hubs preserves the value for every input.</p>
+<p><strong>The interior blind spot.</strong> Start with A(0,0), B(8,0), C(0,8), and D(4,4). Move D to (2,2). HPWL stays at 16, while Clique drops from 56 to 52 and Star-from-A from 24 to 20. An unchanged boundary does not imply unchanged values in the other models.</p>
+<p><strong>Zero is not a legality certificate.</strong> If all pins overlap, all three values are zero. These models do not check physical cell area, overlap, density, or timing, so the result does not certify a completed placement.</p>
+<h4>Compare like with like</h4>
+<p>The values 4, 16, and 8 measure different quantities on the same diagram. Their relative sizes cannot tell us which model is “best.” Before comparing two candidate placements, align the model, distance metric, weights, and constraints. HPWL is an estimate, rather than exact routed wirelength.</p>
+<p>The main experiment measures only ABCD. Across the teacher’s six nets, total unweighted HPWL changes 52→14; with weights [1,1,1,1,5,1], it changes 116→30. Do not mix these all-net values with single-net ABCD’s 16→4 in the same comparison column.</p>
+<h4>Implementation and verification</h4>
+<p>Complete the three functions in exercise.py, then compare with reference.py. Input is a list of pins, each with id, x, and y. IDs must be unique and coordinates finite. Empty or single-pin nets give zero; for a nonempty net the hub must be present. With two pins, all three models agree.</p>
+<p>Check translation invariance and uniform positive scaling. Also check that the sum of Star values over every existing pin as hub equals twice the Clique value. Reject missing coordinates, NaN, duplicate IDs, and invalid hubs.</p>
+<h4>Sources and licenses</h4>
+<p>This material follows Yongfu Li’s eda-learning / module01-03-net-models and placement-core.js. The mapping follows course order; issue #26 has an empty body. New explanations and exercises are CC BY 4.0; new code is MIT. See THIRD_PARTY_NOTICES.md in the repository for individual lesson references, fonts, and other third-party sources.</p></div><p class="optional" data-site-language="zh"><a href="../downloads/lesson.md" download>可选：下载 Markdown 讲义 ↓</a></p><p class="optional" data-site-language="en" lang="en" hidden><a href="../downloads/lesson.en.md" download>Optional: download English Markdown notes ↓</a></p></section><section id="transcript-zh" class="reading-section" lang="zh-CN"><p class="eyebrow">05 / READ ONLINE</p><h2>视频文字稿 · 中文</h2><p><a href="../#film">返回双语影片 →</a></p><div data-original-language="zh"><h3>同一组引脚，三把尺子</h3>
 <p>普通话合成旁白：zh-CN-XiaoxiaoNeural；总长 346.37 秒。</p>
 <h4>00:00:00.000 · 同一组引脚，三把尺子</h4>
 <p>同一组引脚，为什么会有三种线长？这一课，我们用三把不同的尺子，看懂芯片布局里的网络模型。</p>
@@ -198,7 +226,7 @@ if __name__==&#x27;__main__&#x27;:print(json.dumps([evaluate(p) for p in json.lo
 <h4>00:05:18.000 · 先预测，再运行</h4>
 <p>试着更换星形中心，移动内部点，再完成六个实验任务。每次先写下自己的预测，再读程序给出的每一项，解释变化是从哪里来的。</p>
 <h4>00:05:31.633 · 带走三个函数，也带走约定</h4>
-<p>最后，用可下载的 Python 练习实现三个函数，和独立参考程序核对。比记住四、十六、八更重要的，是你能说清楚，每个数字究竟量了什么。</p><p class="optional"><a href="../downloads/transcript.md" download>可选：下载中文文字稿 ↓</a></p></section><section id="transcript-en" class="reading-section" lang="en"><p class="eyebrow">06 / READ ONLINE</p><h2>Video transcript · English</h2><p><a href="../#film">返回影片，在配音菜单选择 English →</a></p><h3>One net. Three rulers.</h3>
+<p>最后，用可下载的 Python 练习实现三个函数，和独立参考程序核对。比记住四、十六、八更重要的，是你能说清楚，每个数字究竟量了什么。</p></div><p class="optional"><a href="../downloads/transcript.md" download>可选：下载中文文字稿 ↓</a></p></section><section id="transcript-en" class="reading-section" lang="en"><p class="eyebrow">06 / READ ONLINE</p><h2>Video transcript · English</h2><p><a href="../#film">返回影片，在配音菜单选择 English →</a></p><h3>One net. Three rulers.</h3>
 <p>Voice: en-US-JennyNeural; duration 349.77 s.</p>
 <h4>00:00:00.000 · One net. Three rulers.</h4>
 <p>How can the same set of pins have three different wirelengths? In this lesson, we use three different rulers to understand net models in chip placement.</p>
@@ -249,7 +277,7 @@ if __name__==&#x27;__main__&#x27;:print(json.dumps([evaluate(p) for p in json.lo
 <h4>00:05:20.033 · Predict first. Then check.</h4>
 <p>Change the star hub, move the interior pin, and try the six experiment tasks. Write down your prediction first. Then inspect each computed contribution and explain where the change came from.</p>
 <h4>00:05:34.600 · Take the definitions with you</h4>
-<p>Finally, implement the three functions in the downloadable Python exercise and compare with the independent reference. More important than remembering four, sixteen, and eight is explaining exactly what each number measures.</p><p class="optional"><a href="../downloads/transcript.en.md" download>Optional: download the English transcript ↓</a></p></section><section id="reproduce" class="reading-section"><p class="eyebrow">07 / READ ONLINE</p><h2>源码与复现：看懂之后再动手</h2><h3>源码与复现说明</h3>
+<p>Finally, implement the three functions in the downloadable Python exercise and compare with the independent reference. More important than remembering four, sixteen, and eight is explaining exactly what each number measures.</p><p class="optional"><a href="../downloads/transcript.en.md" download>Optional: download the English transcript ↓</a></p></section><section id="reproduce" class="reading-section"><p class="eyebrow">07 / READ ONLINE</p><h2>源码与复现：看懂之后再动手</h2><div data-site-language="zh"><h3>源码与复现说明</h3>
 <h4>先在网站中验证</h4>
 <p>返回课程的交互实验，载入标准正方形。三个结果应为 HPWL 4、Clique 16、Star-from-A 8。切换非对称图并更换中心，再对照阅读页中的数据表。</p>
 <p>网页实验在浏览器本地计算，不需要登录。阅读 Python 和 JSON 也不需要安装任何软件。下面的本机操作仅在你希望自己运行或修改时使用。</p>
@@ -271,12 +299,41 @@ print(evaluate(pins, &quot;A&quot;))  # [4, 16, 8]</code></pre>
 <pre><code>python3 scripts/serve.py --port 8000</code></pre>
 <p>在浏览器打开 http://localhost:8000。这个本地服务支持视频分段请求，章节跳转可以正常工作。视频、双语字幕、文字稿和所有实验资源都随仓库提供，播放已生成影片无需再次调用语音服务。</p>
 <h4>修改课程或重新制作影片</h4>
-<ul><li>网页与算法：site/index.html、site/assets/models.mjs、site/assets/app.mjs。</li><li>在线阅读页：scripts/build_reading.py 从原始讲义、代码、数据和文字稿生成，修改内容后运行 python3 scripts/build_reading.py。</li><li>中文分镜：video/story.json；英文分镜：video/story.en.json。</li><li>冻结语音与实际句子时间戳：video/audio/ 和 video/audio/en/。</li><li>语音和渲染：scripts/speech.py、scripts/render-film.py，使用 --lang zh 或 --lang en。</li></ul>
+<ul><li>网页与算法：site/index.html、site/assets/models.mjs、site/assets/app.mjs。</li><li>在线阅读页：scripts/build_reading.py 从原始讲义、代码、数据和文字稿生成，修改内容后运行 python3 scripts/build_reading.py。</li><li>中文分镜：video/story.json；英文分镜：video/story.en.json。</li><li>冻结语音与实际句子时间戳：video/audio/ 和 video/audio/en/。</li><li>语音和渲染：scripts/speech.py、scripts/render-film.py，使用 --lang zh 或 --lang en。</li><li>双语字幕：scripts/build-bilingual-captions.py --mux，在两部影片渲染完成后运行，生成同屏字幕并嵌入 MP4。</li></ul>
 <p>完整运行命令、依赖与许可可在<a href="https://github.com/FanqinZeng/eda-placement-lesson3">课程源码与 README</a>中直接查看。</p>
 <h4>检查结果</h4>
 <pre><code>node --test tests/*.test.mjs
 python3 scripts/check-site.py
 python3 scripts/build_reading.py --check</code></pre>
 <p>媒体流、音量与字幕验证需要制作依赖，分别运行 scripts/verify-media.py 和 scripts/verify-media.py --lang en。自动测试不等于人的完整听感审评或所有真实设备的验证。</p>
-<p>新增代码 MIT，新教材 CC BY 4.0。教师教材、字体与合成语音来源见仓库 THIRD_PARTY_NOTICES.md。</p></section></div></div></main><footer><div class="wrap">PLACEMENT / 03 · 学习资料<span>代码 MIT / 新教材 CC BY 4.0</span><a href="../#resources">返回课程 ↑</a></div></footer><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p><script type="module" src="../assets/reading.mjs"></script></body></html>
-<!-- source-sha256: 617e62075a30a998b287afcf8cdb5cb972e4a4e08bc492726e8846ca91d1caa4 -->
+<p>新增代码 MIT，新教材 CC BY 4.0。教师教材、字体与合成语音来源见仓库 THIRD_PARTY_NOTICES.md。</p></div><div data-site-language="en" lang="en" hidden><h3>Source and reproduction guide</h3>
+<h4>Verify in the website first</h4>
+<p>Return to the interactive lab and load the standard square. Expect HPWL 4, Clique 16, and Star-from-A 8. Switch to the asymmetric preset, change the hub, and compare with the tables in this reading room.</p>
+<p>The lab computes locally in your browser and requires no login. Reading Python and JSON requires no software installation. Use the local instructions below when you want to run or modify the project yourself.</p>
+<h4>Run Python yourself</h4>
+<p>The complete exercise template and reference implementation appear on this page. Copy the code into an editor or download the original file.</p>
+<p>Save the reference implementation as reference.py and run this example in the same directory:</p>
+<pre><code>from reference import evaluate
+
+pins = [
+    {&quot;id&quot;: &quot;A&quot;, &quot;x&quot;: 2, &quot;y&quot;: 2},
+    {&quot;id&quot;: &quot;B&quot;, &quot;x&quot;: 4, &quot;y&quot;: 2},
+    {&quot;id&quot;: &quot;C&quot;, &quot;x&quot;: 2, &quot;y&quot;: 4},
+    {&quot;id&quot;: &quot;D&quot;, &quot;x&quot;: 4, &quot;y&quot;: 4},
+]
+print(evaluate(pins, &quot;A&quot;))  # [4, 16, 8]</code></pre>
+<p>The reference implementation uses only the Python standard library. In examples.json, datasets are grouped by preset name. Pass one preset’s pin list, such as data[&quot;golden&quot;], to evaluate, rather than the entire dictionary.</p>
+<h4>Run the whole website offline</h4>
+<p>Download the full course repository, then run from its root:</p>
+<pre><code>python3 scripts/serve.py --port 8000</code></pre>
+<p>Open http://localhost:8000 in a browser. The local server supports video range requests, so chapter seeking works. The repository includes videos, bilingual captions, transcripts, and experiment assets. Playing the rendered films does not call the speech service again.</p>
+<h4>Modify the lesson or remake the film</h4>
+<ul><li>Website and algorithms: site/index.html, site/assets/models.mjs, and site/assets/app.mjs.</li><li>Reading room: scripts/build_reading.py generates it from the authored notes, code, data, and transcripts. Run python3 scripts/build_reading.py after changing them.</li><li>Chinese storyboard: video/story.json; English storyboard: video/story.en.json.</li><li>Frozen speech and actual sentence timestamps: video/audio/ and video/audio/en/.</li><li>Speech and rendering: scripts/speech.py and scripts/render-film.py, using --lang zh or --lang en.</li><li>Bilingual captions: run scripts/build-bilingual-captions.py --mux after rendering both films to generate synchronized tracks and embed subtitles in MP4.</li></ul>
+<p>See the <a href="https://github.com/FanqinZeng/eda-placement-lesson3">course source and README</a> for full commands, dependencies, and licenses.</p>
+<h4>Check the results</h4>
+<pre><code>node --test tests/*.test.mjs
+python3 scripts/check-site.py
+python3 scripts/build_reading.py --check</code></pre>
+<p>Media stream, loudness, and caption checks require production dependencies. Run scripts/verify-media.py and scripts/verify-media.py --lang en. Automated tests do not replace full human listening review or verification on every physical device.</p>
+<p>New code is MIT; new teaching material is CC BY 4.0. See THIRD_PARTY_NOTICES.md in the repository for teacher material, fonts, and synthesized speech attribution.</p></div></section></div></div></main><footer><div class="wrap">PLACEMENT / 03 · 学习资料<span>代码 MIT / 新教材 CC BY 4.0</span><a href="../#resources">返回课程 ↑</a></div></footer><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p><script type="module" src="../assets/reading.mjs"></script></body></html>
+<!-- source-sha256: 908a82617f6969d1084c14614bcf642ecab2820504b43065d861cdf94ce27923 -->

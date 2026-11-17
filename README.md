@@ -1,6 +1,6 @@
 # 三把尺子，看懂线长 · Placement Lesson 03
 
-中文交互课程：同一组引脚，比较 BBox/HPWL、Clique 与 Star。为 [eda-learning issue #26](https://github.com/yongfu-li/eda-learning/issues/26) 制作，对应关系及主题依据见 [课程范围](docs/research/course-scope.md)。
+中英文交互课程：同一组引脚，比较 BBox/HPWL、Clique 与 Star。为 [eda-learning issue #26](https://github.com/yongfu-li/eda-learning/issues/26) 制作，对应关系及主题依据见 [课程范围](docs/research/course-scope.md)。
 
 **第一版已于 2026-11-17 12:13（Asia/Shanghai）发布并验证，早于 15:00 截止时间。**
 
@@ -12,6 +12,9 @@
 
 ## 内容
 
+- 全站中文 / English 界面切换，覆盖讲解、实验反馈、练习与在线资料页；选择保存在本机。也可用 `?lang=zh` 或 `?lang=en` 直接指定。
+- [实时 Python 交互台](https://fanqinzeng.github.io/eda-placement-lesson3/python/)：浏览器中运行真正 CPython，可编辑代码、实时重跑、查看输出与异常；独立 Worker 支持停止及 5 秒超时恢复。附黄金样例、反例与练习模板。
+- 两种配音均默认显示同屏中英双语字幕，可选中文、英文或关闭；可下载 VTT。两部 MP4 也内嵌可选择的双语字幕轨。
 - 三模型同步 SVG 实验：拖动、方向键与坐标表等价编辑，Star 中心可切换。
 - 逐条 Clique 求和演示、对称/非对称/内部点反例。
 - 六项实验任务、六项带解析概念检查，本地学习记录及禁用存储降级。
@@ -36,7 +39,7 @@ python3 scripts/verify-media.py
 python3 scripts/verify-media.py --lang en
 ```
 
-第三条需要 `requirements-media.txt` 中的依赖。引擎与独立 Python 对 300 组确定性输入交叉核对。真实浏览器验证报告与媒体流检查见 [docs/qa](docs/qa)。`scripts/check-browser.py` 使用隔离的已安装 Microsoft Edge 和 Playwright；修改其 URL/可执行文件路径可用于其他环境。
+媒体验证需要 `requirements-media.txt` 中的依赖。引擎与独立 Python 对 300 组确定性输入交叉核对。真实浏览器验证报告与媒体流检查见 [docs/qa](docs/qa)。`scripts/check-browser.py` 使用隔离的已安装 Microsoft Edge 和 Playwright；修改其 URL/可执行文件路径可用于其他环境。
 
 ## 重新制作影片
 
@@ -49,9 +52,10 @@ node scripts/export-data.mjs
 .venv/bin/python scripts/speech.py
 .venv/bin/python scripts/render-film.py --stills
 .venv/bin/python scripts/render-film.py
-.venv/bin/python scripts/verify-media.py
 .venv/bin/python scripts/speech.py --lang en
 .venv/bin/python scripts/render-film.py --lang en
+.venv/bin/python scripts/build-bilingual-captions.py --mux
+.venv/bin/python scripts/verify-media.py
 .venv/bin/python scripts/verify-media.py --lang en
 .venv/bin/python scripts/build-versions.py
 python3 scripts/build_reading.py

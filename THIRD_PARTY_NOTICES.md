@@ -5,4 +5,5 @@
 - 视频参考 [Partitioning_Module_Coordinator](https://github.com/FanqinZeng/Partitioning_Module_Coordinator) 的配色；未复用其成片、情节或音乐。无背景音乐。
 - 影片字体：Noto Sans SC Regular、JetBrains Mono Regular，SIL Open Font License 1.1。文件与对应 OFL 位于 `video/fonts/`。来源固定到 [Su3037/learning-clustering f0b40a2](https://github.com/Su3037/learning-clustering/tree/f0b40a2d93283da52813315f1880f263ee3bef0b/fonts)，由用户参考仓库已校验缓存提供。网页使用系统字体。
 - 教学结构参考 Su3037、Capeur、thy031、GateUltra、muranfei、stephQ-lab、xingguangyaoyu 的公开课程。逐项链接与借鉴点见 [课程调研](docs/research/lesson-review.md)。不将其他同学的成果作为本项目原创，不复制第三方媒体。
-- Pillow、NumPy、edge-tts、imageio-ffmpeg 和 Playwright 是制作/验证依赖，未将完整第三方运行时打包为网站资源。版本与命令见 README。
+- Python 交互台使用本地打包、未经修改的 [Pyodide 0.28.3](https://github.com/pyodide/pyodide/tree/0.28.3) 浏览器运行时，MPL-2.0。上游完整源代码见该版本链接；运行文件来自用户参考仓库的同版本缓存。许可副本位于 `site/vendor/pyodide/LICENSE`，CPython 许可及历史声明位于 `site/vendor/pyodide/LICENSE-CPython.txt`。本项目新增代码的 MIT 许可不覆盖这些第三方文件。
+- Pillow、NumPy、edge-tts、imageio-ffmpeg 和 Playwright 是制作/验证依赖，不属于网站运行依赖。版本与命令见 README。
