@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 59750000, "text": "From A at the lower left to D at the upper right, move two units horizontally and two vertically."}
+{"type": "SentenceBoundary", "offset": 60250000, "duration": 25625000, "text": "Their Manhattan distance is four."}
+{"type": "SentenceBoundary", "offset": 85875000, "duration": 35125000, "text": "Every model here uses this same basic distance."}

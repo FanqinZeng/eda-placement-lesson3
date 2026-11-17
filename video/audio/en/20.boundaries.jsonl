@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 48500000, "text": "Place every pin at one position and all three wirelengths become zero."}
+{"type": "SentenceBoundary", "offset": 49000000, "duration": 35375000, "text": "Real cells have area and cannot freely overlap."}
+{"type": "SentenceBoundary", "offset": 84375000, "duration": 44625000, "text": "These measurements have not checked density, overlap, or timing."}

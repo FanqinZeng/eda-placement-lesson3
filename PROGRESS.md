@@ -10,9 +10,11 @@
 - 核对上游当前与任务分配时的目录、net-models 讲稿、公式、数据与实验；课程主题映射为 Net models for wirelength，注明这是依据教学顺序的映射推断。
 - 检查参考视频封面和配色源码，记录精确色值与中文旁白交付要求。
 - 完成 `docs/course-design.md`；独立设计审阅结果为“nothing important left”。
-- 已启用本聊天每两小时运行的 heartbeat：`placement-lesson-03`。
+- 已启用本聊天 heartbeat（现为每 40 分钟）：`placement-lesson-03`。
 
 ## 当前阶段
+
+用户进一步明确要求中英文配音都必须有。目前已完成中英文独立成片、字幕、文字稿、章节和网页语言切换，正在进行该更新的独立审阅与公开发布。
 
 **首版已于 2026-11-17 12:13（Asia/Shanghai）交付，早于用户要求的 15:00。**
 

@@ -1,0 +1,46 @@
+/** Keep the same authored scene and its relative progress across voice timelines. */
+export function mapPlaybackTime(time,from,to){
+ if(!Number.isFinite(time)||time<=0||!from?.length||!to?.length)return 0;
+ if(time>=from.at(-1).end)return to.at(-1).end;
+ const i=from.findIndex(s=>time<s.end);if(i<0||!to[i])return 0;
+ const a=from[i],b=to[i],fraction=Math.max(0,Math.min(1,(time-a.start)/(a.end-a.start)));
+ return b.start+(b.end-b.start)*fraction;
+}
+export async function initLessonPlayer(root=document){
+ const $=s=>root.querySelector(s),video=$('#lesson-video'),select=$('#voice-language'),track=$('#lesson-captions');
+ let versions,active='zh',request=0,pending=null;
+ const status=$('#video-language-status');select.disabled=true;
+ $('#video-speed').onchange=e=>{video.playbackRate=Number(e.target.value);if(pending)pending.speed=video.playbackRate;};
+ video.addEventListener('error',()=>{$('#video-status').textContent='播放器暂时无法载入。可以下载当前语言 MP4，或阅读文字稿继续学习。';});
+ function resources(lang){
+  const v=versions[lang];$('#download-video').href=v.video;$('#download-video').textContent=`下载 ${v.label} MP4 ↓`;
+  $('#download-captions').href=v.captions;$('#download-captions').textContent=`${v.trackLabel} VTT ↓`;
+  $('#video-transcript').href=v.transcript;$('#video-transcript').textContent=`${v.label}文字稿 / Transcript ↗`;
+  $('#chapters').innerHTML=v.chapters.map((c,i)=>`<button data-chapter="${i}"><span>${Math.floor(c.start/60)}:${String(Math.floor(c.start%60)).padStart(2,'0')}</span>${c.title}</button>`).join('');
+  $('#chapters').querySelectorAll('button').forEach((button,i)=>button.onclick=()=>{
+   const t=v.chapters[i].start;if(pending){pending.time=t;pending.resume=true;return;}
+   video.currentTime=t;video.play().catch(()=>{$('#video-status').textContent='章节已定位，点击播放器开始。';});
+  });
+ }
+ function switchVoice(lang){
+  if(!versions[lang])return;
+  const token=++request,from=pending?.lang||active,time=pending?.time??video.currentTime;
+  const state={lang,time:mapPlaybackTime(time,versions[from].scenes,versions[lang].scenes),resume:pending?.resume??!video.paused,speed:pending?.speed??video.playbackRate};
+  pending=state;video.pause();resources(lang);status.textContent=`正在载入 ${versions[lang].label} 配音…`;$('#video-status').textContent='';
+  for(const t of video.textTracks)t.mode='disabled';
+  track.src=versions[lang].captions;track.srclang=versions[lang].trackLanguage;track.label=versions[lang].trackLabel;
+  video.poster=versions[lang].poster;
+  video.addEventListener('loadedmetadata',()=>{
+   if(token!==request)return;
+   active=lang;video.dataset.language=lang;video.currentTime=Math.min(state.time,Math.max(0,video.duration-.01));video.playbackRate=state.speed;
+   if(track.track)track.track.mode='showing';select.value=lang;status.textContent=`当前配音：${versions[lang].label} · ${versions[lang].voice}`;pending=null;
+   if(state.resume)video.play().catch(()=>{$('#video-status').textContent='语言已切换，点击播放器继续播放。';});
+  },{once:true});
+  video.src=versions[lang].video;video.load();
+ }
+ try{
+  const r=await fetch('media/versions.json');if(!r.ok)throw Error('versions');versions=await r.json();
+  resources('zh');video.dataset.language='zh';status.textContent=`当前配音：中文 · ${versions.zh.voice}`;select.disabled=false;
+  select.onchange=e=>switchVoice(e.target.value);
+ }catch{status.textContent='双语切换资料暂时无法载入；下方可分别下载中文和英文成片。';}
+}

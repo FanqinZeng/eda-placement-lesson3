@@ -1,3 +1,4 @@
+import {initLessonPlayer} from './player.mjs';
 import {evaluate,PRESETS} from './models.mjs';
 import {diagram} from './draw.mjs';
 const $=s=>document.querySelector(s),copy=p=>p.map(x=>({...x})),fmt=n=>Number(n.toFixed(2)).toString();
@@ -52,6 +53,5 @@ const quiz=[
 $('#quiz').innerHTML=quiz.map(([q,options],i)=>`<form class="exercise" data-quiz="${i}"><h4>${i+1}. ${q}</h4>${options.map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}" required style="width:auto;margin-right:8px">${o}</label>`).join('')}<button type="submit">检查与解释</button><p class="feedback" role="status"></p></form>`).join('');
 document.querySelectorAll('[data-quiz]').forEach(f=>f.onsubmit=e=>{e.preventDefault();const i=Number(f.dataset.quiz),v=Number(new FormData(f).get('q'+i)),ok=v===quiz[i][2];feedback(f.querySelector('.feedback'),ok,quiz[i][3]);if(ok){progress['quiz'+i]=true;save();}});
 $('#clear-progress').onclick=()=>{progress={};save();document.querySelectorAll('.feedback').forEach(p=>{p.textContent='';});document.querySelectorAll('.exercise').forEach(f=>f.reset());};
-const video=$('#lesson-video');$('#video-speed').onchange=e=>{video.playbackRate=Number(e.target.value);};video.addEventListener('error',()=>{$('#video-status').textContent='播放器暂时无法载入。可以下载 MP4，或阅读完整文字稿继续学习。';});
-fetch('media/chapters.json').then(r=>{if(!r.ok)throw Error('chapters');return r.json();}).then(chapters=>{$('#chapters').innerHTML=chapters.map((c,i)=>`<button data-chapter="${i}"><span>${Math.floor(c.start/60)}:${String(Math.floor(c.start%60)).padStart(2,'0')}</span>${c.title}</button>`).join('');$('#chapters').querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{video.currentTime=chapters[i].start;video.play().catch(()=>{$('#video-status').textContent='章节已定位，点击播放器开始。';});});}).catch(()=>{$('#chapters').textContent='章节暂时无法读取，请使用播放器进度条。';});
+initLessonPlayer();
 motion();renderStep();renderLab();updateProgress();

@@ -1,0 +1,6 @@
+{
+  "digest": "4a02182af7583dd93991868b9001f889d8bb51389ef05e5cccf67a1327de2940",
+  "voice": "en-US-JennyNeural",
+  "rate": "+0%",
+  "text": "A net on a chip can connect several pins at once. The connections are already specified; placement chooses their positions. Before estimating wirelength, we must also choose a measurement model."
+}

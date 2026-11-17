@@ -1,0 +1,4 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 43625000, "text": "The first model finds the smallest box containing all pins."}
+{"type": "SentenceBoundary", "offset": 44125000, "duration": 36125000, "text": "The leftmost and rightmost pins determine its width."}
+{"type": "SentenceBoundary", "offset": 80250000, "duration": 30625000, "text": "The lowest and highest determine its height."}
+{"type": "SentenceBoundary", "offset": 110875000, "duration": 19625000, "text": "Add width and height."}

@@ -1,0 +1,283 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 349.7666666666667,
+  "scenes": [
+    {
+      "index": 0,
+      "chapter": "The problem",
+      "kind": "intro",
+      "title": "One net. Three rulers.",
+      "caption": "Why can the same pins have three wirelengths?",
+      "speech": "How can the same set of pins have three different wirelengths? In this lesson, we use three different rulers to understand net models in chip placement.",
+      "start": 0,
+      "end": 10.466666666666667,
+      "duration": 10.466666666666667
+    },
+    {
+      "index": 1,
+      "chapter": "The problem",
+      "kind": "intro",
+      "title": "Connections first. Positions next.",
+      "caption": "A single net can connect several pins.",
+      "speech": "A net on a chip can connect several pins at once. The connections are already specified; placement chooses their positions. Before estimating wirelength, we must also choose a measurement model.",
+      "start": 10.466666666666667,
+      "end": 24.766666666666666,
+      "duration": 14.3
+    },
+    {
+      "index": 2,
+      "chapter": "The problem",
+      "kind": "golden",
+      "title": "Four pins we can check by hand",
+      "caption": "A(2,2) / B(4,2) / C(2,4) / D(4,4)",
+      "speech": "Start with four pins at the corners of a square of side two. We use these same coordinates throughout, comparing a bounding box, a clique, and a star.",
+      "start": 24.766666666666666,
+      "end": 35.733333333333334,
+      "duration": 10.966666666666667
+    },
+    {
+      "index": 3,
+      "chapter": "Distance",
+      "kind": "distance",
+      "title": "Horizontal plus vertical",
+      "caption": "Manhattan distance = horizontal span + vertical span",
+      "speech": "We use Manhattan distance, rather than straight-line distance. Add the absolute horizontal difference to the absolute vertical difference. The bent lines in our drawings illustrate that measurement.",
+      "start": 35.733333333333334,
+      "end": 49.53333333333333,
+      "duration": 13.8
+    },
+    {
+      "index": 4,
+      "chapter": "Distance",
+      "kind": "distance",
+      "title": "From A to D: two plus two",
+      "caption": "d(A,D) = 2 + 2 = 4",
+      "speech": "From A at the lower left to D at the upper right, move two units horizontally and two vertically. Their Manhattan distance is four. Every model here uses this same basic distance.",
+      "start": 49.53333333333333,
+      "end": 62.83333333333333,
+      "duration": 13.3
+    },
+    {
+      "index": 5,
+      "chapter": "BBox",
+      "kind": "bbox",
+      "title": "Ruler one: measure the boundary",
+      "caption": "BBox / HPWL = width + height",
+      "speech": "The first model finds the smallest box containing all pins. The leftmost and rightmost pins determine its width. The lowest and highest determine its height. Add width and height.",
+      "start": 62.83333333333333,
+      "end": 77.06666666666666,
+      "duration": 14.233333333333333
+    },
+    {
+      "index": 6,
+      "chapter": "BBox",
+      "kind": "bbox",
+      "title": "Half the perimeter, not all of it",
+      "caption": "Width 2 + height 2 = HPWL 4",
+      "speech": "For our square, width and height are both two, giving a half-perimeter wirelength of four. Walking around all four sides gives eight. That is the full perimeter, not this metric.",
+      "start": 77.06666666666666,
+      "end": 90.96666666666667,
+      "duration": 13.9
+    },
+    {
+      "index": 7,
+      "chapter": "BBox",
+      "kind": "bbox",
+      "title": "A single scan is enough",
+      "caption": "p pins / O(p)",
+      "speech": "The bounding box needs only four extreme coordinates. Scan each pin once to find them, so the computation grows linearly with the number of pins. It is a cheap wirelength estimate.",
+      "start": 90.96666666666667,
+      "end": 104.43333333333334,
+      "duration": 13.466666666666667
+    },
+    {
+      "index": 8,
+      "chapter": "Clique",
+      "kind": "clique",
+      "title": "Ruler two: measure every pair",
+      "caption": "AB / AC / AD / BC / BD / CD",
+      "speech": "The second model is a clique: connect every pair of distinct pins and add their Manhattan distances. Four pins give six unordered pairs. Count each pair exactly once.",
+      "start": 104.43333333333334,
+      "end": 117.96666666666667,
+      "duration": 13.533333333333333
+    },
+    {
+      "index": 9,
+      "chapter": "Clique",
+      "kind": "clique",
+      "title": "Every term names a pair",
+      "caption": "2 + 2 + 4 + 4 + 2 + 2",
+      "speech": "In alphabetical order, measure A to B, A to C, and A to D; then B to C, B to D, and C to D. The six distances are two, two, four, four, two, and two.",
+      "start": 117.96666666666667,
+      "end": 133.06666666666666,
+      "duration": 15.1
+    },
+    {
+      "index": 10,
+      "chapter": "Clique",
+      "kind": "clique",
+      "title": "Six distances add up to sixteen",
+      "caption": "Clique = 16",
+      "speech": "Adding these six terms gives sixteen. Do not count both A to B and B to A. Those names describe the same unordered pair; double counting would incorrectly produce thirty-two.",
+      "start": 133.06666666666666,
+      "end": 146.2,
+      "duration": 13.133333333333333
+    },
+    {
+      "index": 11,
+      "chapter": "Clique",
+      "kind": "clique",
+      "title": "The edge count grows quadratically",
+      "caption": "Edges = p(p-1)/2 / O(p squared)",
+      "speech": "With p pins, a clique has p times p minus one, divided by two edges. Here we sum unnormalized Manhattan distances. This is not the squared-distance objective used in quadratic placement.",
+      "start": 146.2,
+      "end": 160.76666666666665,
+      "duration": 14.566666666666666
+    },
+    {
+      "index": 12,
+      "chapter": "Star",
+      "kind": "star",
+      "title": "Ruler three: choose a hub",
+      "caption": "Hub h = the existing pin A",
+      "speech": "The third model is a star. Choose one existing pin as a hub and connect it to every other pin. Our example uses A. We do not introduce a virtual center.",
+      "start": 160.76666666666665,
+      "end": 173.86666666666665,
+      "duration": 13.1
+    },
+    {
+      "index": 13,
+      "chapter": "Star",
+      "kind": "star",
+      "title": "Measure only three spokes",
+      "caption": "AB + AC + AD = 2 + 2 + 4 = 8",
+      "speech": "With A as the hub, the spokes are A to B, A to C, and A to D. Their lengths are two, two, and four, totaling eight. Other pin pairs do not enter this sum.",
+      "start": 173.86666666666665,
+      "end": 187.49999999999997,
+      "duration": 13.633333333333333
+    },
+    {
+      "index": 14,
+      "chapter": "Star",
+      "kind": "star",
+      "title": "The hub is part of the definition",
+      "caption": "p pins / p-1 spokes / O(p)",
+      "speech": "A star has only p minus one spokes, so its computation is linear in the pin count. But the hub is part of the model definition. Always name it when reporting the result.",
+      "start": 187.49999999999997,
+      "end": 200.36666666666665,
+      "duration": 12.866666666666667
+    },
+    {
+      "index": 15,
+      "chapter": "Compare",
+      "kind": "compare",
+      "title": "Same pins. Three readings.",
+      "caption": "HPWL 4 / Clique 16 / Star A 8",
+      "speech": "The same pins now give four, sixteen, and eight. Neither their coordinates nor their connections changed. Only the measurement changed. These numbers alone cannot rank which model is better.",
+      "start": 200.36666666666665,
+      "end": 215.26666666666665,
+      "duration": 14.9
+    },
+    {
+      "index": 16,
+      "chapter": "Counterexamples",
+      "kind": "asymmetric",
+      "title": "Break the symmetry",
+      "caption": "HPWL 11 / Clique 36",
+      "speech": "For the square, choosing any corner as the star hub happens to give the same answer. That is a consequence of symmetry. An asymmetric example reveals why the hub matters.",
+      "start": 215.26666666666665,
+      "end": 228.2,
+      "duration": 12.933333333333334
+    },
+    {
+      "index": 17,
+      "chapter": "Counterexamples",
+      "kind": "hubs",
+      "title": "Change the hub. Change the result.",
+      "caption": "Star A 16 / B 22 / C 14 / D 20",
+      "speech": "Using A, B, C, and D as hubs now gives sixteen, twenty-two, fourteen, and twenty. C has the smallest value here. This shows hub dependence; it does not prove a placement algorithm is optimal.",
+      "start": 228.2,
+      "end": 244.26666666666665,
+      "duration": 16.066666666666666
+    },
+    {
+      "index": 18,
+      "chapter": "Counterexamples",
+      "kind": "inside",
+      "title": "An interior move can stay hidden",
+      "caption": "Move D from (4,4) to (2,2)",
+      "speech": "Next, A, B, and C support an eight by eight bounding box. Move the interior pin D from four, four to two, two. Watch the three rulers: which readings change?",
+      "start": 244.26666666666665,
+      "end": 258.76666666666665,
+      "duration": 14.5
+    },
+    {
+      "index": 19,
+      "chapter": "Counterexamples",
+      "kind": "inside",
+      "title": "One move. Different sensitivities.",
+      "caption": "HPWL stays 16 / Clique 56 to 52 / Star A 24 to 20",
+      "speech": "The half-perimeter stays sixteen because the outer boundaries did not change. The clique decreases from fifty-six to fifty-two, and the star from twenty-four to twenty. Different models respond differently to the same move.",
+      "start": 258.76666666666665,
+      "end": 273.8666666666667,
+      "duration": 15.1
+    },
+    {
+      "index": 20,
+      "chapter": "Limits",
+      "kind": "collapse",
+      "title": "Zero wirelength is not a legal layout",
+      "caption": "All three values are zero. Legality is still unchecked.",
+      "speech": "Place every pin at one position and all three wirelengths become zero. Real cells have area and cannot freely overlap. These measurements have not checked density, overlap, or timing.",
+      "start": 273.8666666666667,
+      "end": 287.93333333333334,
+      "duration": 14.066666666666666
+    },
+    {
+      "index": 21,
+      "chapter": "Limits",
+      "kind": "compare",
+      "title": "A model drawing is not routed wire",
+      "caption": "Align the model, distance, weights, and constraints.",
+      "speech": "The bent lines illustrate measurement relationships, not final shared routing paths. Before comparing two placement candidates, align the model, the distance, the weights, and the constraints. Small numbers need a clear definition.",
+      "start": 287.93333333333334,
+      "end": 304.43333333333334,
+      "duration": 16.5
+    },
+    {
+      "index": 22,
+      "chapter": "Your experiment",
+      "kind": "starter",
+      "title": "Measure a spread and a compact square",
+      "caption": "Starter 16 / 64 / 32 to Golden 4 / 16 / 8",
+      "speech": "On the website, load the spread square and then the compact reference square. The readings change from sixteen, sixty-four, thirty-two to four, sixteen, eight. Drag a pin to investigate your own placement.",
+      "start": 304.43333333333334,
+      "end": 320.03333333333336,
+      "duration": 15.6
+    },
+    {
+      "index": 23,
+      "chapter": "Your experiment",
+      "kind": "close",
+      "title": "Predict first. Then check.",
+      "caption": "Drag / use the keyboard / calculate / verify with code",
+      "speech": "Change the star hub, move the interior pin, and try the six experiment tasks. Write down your prediction first. Then inspect each computed contribution and explain where the change came from.",
+      "start": 320.03333333333336,
+      "end": 334.6,
+      "duration": 14.566666666666666
+    },
+    {
+      "index": 24,
+      "chapter": "Your experiment",
+      "kind": "close",
+      "title": "Take the definitions with you",
+      "caption": "BBox / Clique / Star-from-h",
+      "speech": "Finally, implement the three functions in the downloadable Python exercise and compare with the independent reference. More important than remembering four, sixteen, and eight is explaining exactly what each number measures.",
+      "start": 334.6,
+      "end": 349.7666666666667,
+      "duration": 15.166666666666666
+    }
+  ]
+}

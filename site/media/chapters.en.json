@@ -1,0 +1,38 @@
+[
+  {
+    "title": "The problem",
+    "start": 0
+  },
+  {
+    "title": "Distance",
+    "start": 35.733
+  },
+  {
+    "title": "BBox",
+    "start": 62.833
+  },
+  {
+    "title": "Clique",
+    "start": 104.433
+  },
+  {
+    "title": "Star",
+    "start": 160.767
+  },
+  {
+    "title": "Compare",
+    "start": 200.367
+  },
+  {
+    "title": "Counterexamples",
+    "start": 215.267
+  },
+  {
+    "title": "Limits",
+    "start": 273.867
+  },
+  {
+    "title": "Your experiment",
+    "start": 304.433
+  }
+]

@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 36000000, "text": "A net on a chip can connect several pins at once."}
+{"type": "SentenceBoundary", "offset": 36500000, "duration": 48500000, "text": "The connections are already specified; placement chooses their positions."}
+{"type": "SentenceBoundary", "offset": 85000000, "duration": 46500000, "text": "Before estimating wirelength, we must also choose a measurement model."}

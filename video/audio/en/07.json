@@ -1,0 +1,6 @@
+{
+  "digest": "5e15fc2a917ecf35593663f0f9cdd20c3ab74807d0f0c59c716192add0e429f1",
+  "voice": "en-US-JennyNeural",
+  "rate": "+0%",
+  "text": "The bounding box needs only four extreme coordinates. Scan each pin once to find them, so the computation grows linearly with the number of pins. It is a cheap wirelength estimate."
+}

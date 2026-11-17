@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 29625000, "text": "Adding these six terms gives sixteen."}
+{"type": "SentenceBoundary", "offset": 30125000, "duration": 29875000, "text": "Do not count both A to B and B to A."}
+{"type": "SentenceBoundary", "offset": 60000000, "duration": 59750000, "text": "Those names describe the same unordered pair; double counting would incorrectly produce thirty-two."}

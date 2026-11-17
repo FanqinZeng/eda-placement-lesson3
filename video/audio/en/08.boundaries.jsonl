@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 65625000, "text": "The second model is a clique: connect every pair of distinct pins and add their Manhattan distances."}
+{"type": "SentenceBoundary", "offset": 66125000, "duration": 31000000, "text": "Four pins give six unordered pairs."}
+{"type": "SentenceBoundary", "offset": 97125000, "duration": 26625000, "text": "Count each pair exactly once."}

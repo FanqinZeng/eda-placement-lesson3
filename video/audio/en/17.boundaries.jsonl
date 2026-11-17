@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 72250000, "text": "Using A, B, C, and D as hubs now gives sixteen, twenty-two, fourteen, and twenty."}
+{"type": "SentenceBoundary", "offset": 72750000, "duration": 26875000, "text": "C has the smallest value here."}
+{"type": "SentenceBoundary", "offset": 99625000, "duration": 49250000, "text": "This shows hub dependence; it does not prove a placement algorithm is optimal."}

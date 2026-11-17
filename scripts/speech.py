@@ -1,13 +1,16 @@
 """Freeze authored Mandarin speech; network required only for missing/changed beats."""
-import asyncio,json,hashlib,os,ssl
+import asyncio,json,hashlib,argparse
 from pathlib import Path
-import edge_tts,certifi
+import edge_tts
+from media_config import media_config
 ROOT=Path(__file__).resolve().parents[1]
-VOICE='zh-CN-XiaoxiaoNeural';RATE='+0%'
+parser=argparse.ArgumentParser();parser.add_argument('--lang',choices=['zh','en'],default='zh');ARGS=parser.parse_args()
+CFG=media_config(ARGS.lang);VOICE=CFG['voice'];RATE='+0%'
+(ROOT/CFG['audio_dir']).mkdir(parents=True,exist_ok=True)
 async def main():
-    story=json.loads((ROOT/'video/story.json').read_text());sem=asyncio.Semaphore(3)
+    story=json.loads((ROOT/CFG['story']).read_text());sem=asyncio.Semaphore(3)
     async def one(i,beat):
-        path=ROOT/'video/audio'/f'{i:02}.mp3';meta=path.with_suffix('.json');digest=hashlib.sha256((VOICE+RATE+beat[4]).encode()).hexdigest()
+        path=ROOT/CFG['audio_dir']/f'{i:02}.mp3';meta=path.with_suffix('.json');digest=hashlib.sha256((VOICE+RATE+beat[4]).encode()).hexdigest()
         if path.exists() and meta.exists() and json.loads(meta.read_text()).get('digest')==digest:return
         async with sem:
             for attempt in range(3):

@@ -1,0 +1,6 @@
+{
+  "digest": "45546bfd1b6d31ebefbc484694fa3488a6bcc5a24afcacc45c304a97a2e5e4aa",
+  "voice": "en-US-JennyNeural",
+  "rate": "+0%",
+  "text": "From A at the lower left to D at the upper right, move two units horizontally and two vertically. Their Manhattan distance is four. Every model here uses this same basic distance."
+}

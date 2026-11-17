@@ -1,0 +1,6 @@
+{
+  "digest": "686caafb149cfda6f38a412c8ea5dc860bf2460954cd636f5c64f0f752839f60",
+  "voice": "en-US-JennyNeural",
+  "rate": "+0%",
+  "text": "The first model finds the smallest box containing all pins. The leftmost and rightmost pins determine its width. The lowest and highest determine its height. Add width and height."
+}

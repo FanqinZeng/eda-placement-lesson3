@@ -1,4 +1,6 @@
 {
+  "language": "zh",
+  "voice": "zh-CN-XiaoxiaoNeural",
   "status": "passed",
   "duration_seconds": 346.367,
   "resolution": "1920x1080",

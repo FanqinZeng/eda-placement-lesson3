@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 60750000, "text": "For our square, width and height are both two, giving a half-perimeter wirelength of four."}
+{"type": "SentenceBoundary", "offset": 61250000, "duration": 32250000, "text": "Walking around all four sides gives eight."}
+{"type": "SentenceBoundary", "offset": 93500000, "duration": 33500000, "text": "That is the full perimeter, not this metric."}

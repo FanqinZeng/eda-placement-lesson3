@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "voice": "en-US-JennyNeural",
+  "status": "passed",
+  "duration_seconds": 349.767,
+  "resolution": "1920x1080",
+  "fps": 30,
+  "video_codec": "H.264",
+  "audio_codec": "AAC",
+  "mean_volume_db": -22.2,
+  "peak_volume_db": -0.5,
+  "subtitle_cues": 74,
+  "subtitle_timing": "speech-service sentence boundaries",
+  "scenes": 25,
+  "sha256": "b58fab0023251987320f6dddc53f92759ee5021e9e61c579dc1de5ed7f9ab110",
+  "limits": [
+    "Automated stream/audio-level/timing validation and representative frame inspection; subjective human listening review remains open."
+  ]
+}

@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 58250000, "text": "A star has only p minus one spokes, so its computation is linear in the pin count."}
+{"type": "SentenceBoundary", "offset": 58750000, "duration": 29875000, "text": "But the hub is part of the model definition."}
+{"type": "SentenceBoundary", "offset": 88625000, "duration": 28125000, "text": "Always name it when reporting the result."}

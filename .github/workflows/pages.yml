@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Verify numeric engine
-        run: node --test tests/models.test.mjs
+        run: node --test tests/*.test.mjs
       - name: Verify offline video byte ranges
         run: python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Check static resources

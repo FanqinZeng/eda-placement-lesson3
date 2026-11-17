@@ -1,0 +1,3 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 41125000, "text": "We use Manhattan distance, rather than straight-line distance."}
+{"type": "SentenceBoundary", "offset": 41625000, "duration": 48375000, "text": "Add the absolute horizontal difference to the absolute vertical difference."}
+{"type": "SentenceBoundary", "offset": 90000000, "duration": 36125000, "text": "The bent lines in our drawings illustrate that measurement."}

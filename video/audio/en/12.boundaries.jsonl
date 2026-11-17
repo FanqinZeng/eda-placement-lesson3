@@ -1,0 +1,4 @@
+{"type": "SentenceBoundary", "offset": 1000000, "duration": 24250000, "text": "The third model is a star."}
+{"type": "SentenceBoundary", "offset": 24750000, "duration": 43625000, "text": "Choose one existing pin as a hub and connect it to every other pin."}
+{"type": "SentenceBoundary", "offset": 68375000, "duration": 22250000, "text": "Our example uses A."}
+{"type": "SentenceBoundary", "offset": 90625000, "duration": 28500000, "text": "We do not introduce a virtual center."}

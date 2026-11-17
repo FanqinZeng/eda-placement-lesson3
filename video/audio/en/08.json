@@ -1,0 +1,6 @@
+{
+  "digest": "768dc184980d5540bd5d52d407b96f3634671e29f5c1cc36d8582d8ca194c9ea",
+  "voice": "en-US-JennyNeural",
+  "rate": "+0%",
+  "text": "The second model is a clique: connect every pair of distinct pins and add their Manhattan distances. Four pins give six unordered pairs. Count each pair exactly once."
+}
