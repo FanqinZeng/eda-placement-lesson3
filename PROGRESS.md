@@ -14,12 +14,20 @@
 
 ## 当前阶段
 
-用户进一步明确要求中英文配音都必须有。目前已完成中英文独立成片、字幕、文字稿、章节和网页语言切换，正在进行该更新的独立审阅与公开发布。
+**中英文配音补齐已于 2026-11-17 12:36（Asia/Shanghai）公开交付并验证。**
+
+- 中文：346.367 秒（约 5:46），英文：349.767 秒（约 5:50）；两部独立真实配音 MP4，均为 1080p/30fps。
+- 影片上方“配音 / Voice”可选中文或 English；字幕、章节、文字稿和当前下载同步更新，按同一分镜映射进度并保留倍速、播放状态及字幕开关偏好。
+- 英文直链：https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.en.mp4
+- 中英文 67/74 段字幕分别由各自语音实际边界生成，独立音轨及音量验证通过；中文旧成片哈希不变。
+- 双语 Pages 工作流 44018165204 成功；英文 MP4/VTT 均 HTTP 200，真实线上双语切换/播放/字幕/章节回归通过，见 `docs/qa/bilingual-deployment.json`。
+- 更新的独立审阅未发现重要或致命问题，两项较小交互问题已修复并回归。5组 Node 测试、4组 Python 配置/Range测试、原课程交互和34项静态资源检查均通过。
 
 **首版已于 2026-11-17 12:13（Asia/Shanghai）交付，早于用户要求的 15:00。**
 
 - 公开网站：https://fanqinzeng.github.io/eda-placement-lesson3/
 - 中文配音动画：https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.zh.mp4
+- 英文配音动画：https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.en.mp4
 - 源码、分镜、冻结语音、字幕、讲义与测试均已提交并推送到指定仓库。
 - 首次 Pages 工作流 44015478488 成功，实际 HTTPS 页面/视频/VTT 均 HTTP 200；真实浏览器验证线上数值、章节 seek 与移动布局通过，见 `docs/qa/deployment.json`。
 - 定时任务已按用户要求改为每 40 分钟；不再有设计或发布审批阻塞。

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "url": "https://fanqinzeng.github.io/eda-placement-lesson3/",
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "checks": [
+    "two real MP4 files",
+    "paused voice switch preserves scene/fraction",
+    "playing switch resumes",
+    "playback speed preserved",
+    "rapid language changes finish on latest choice",
+    "matching captions and track language",
+    "caption off preference preserved",
+    "obsolete play rejection cannot overwrite current status",
+    "matching current video/subtitle/transcript download links",
+    "language-specific chapter seeking",
+    "mobile/desktop no horizontal overflow",
+    "no uncaught JS errors"
+  ]
+}

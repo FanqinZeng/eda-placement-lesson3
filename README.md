@@ -6,6 +6,8 @@
 
 [打开课程网站](https://fanqinzeng.github.io/eda-placement-lesson3/) · [中文配音动画](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.zh.mp4) · [English narration](https://fanqinzeng.github.io/eda-placement-lesson3/media/lesson.en.mp4)
 
+**中英文配音补齐已于 2026-11-17 12:36 发布并验证。** 在影片上方选择“中文 / English”，或使用上方两种语言的成片直链。
+
 用户已授权按推荐静态方案全权推进，每 40 分钟的定时任务衔接实际反馈和未完成的质量检查。
 
 ## 内容
