@@ -15,10 +15,10 @@
 ## 本地运行
 
 ```bash
-python3 -m http.server 8000 --directory site
+python3 scripts/serve.py --port 8000
 ```
 
-打开 `http://localhost:8000`。网页无框架、无运行时 CDN，数据在本机计算。下载完整仓库后可离线使用已生成的影片与实验；ES modules 需要 HTTP 服务。
+打开 `http://localhost:8000`。网页无框架、无运行时 CDN，数据在本机计算。下载完整仓库后可离线使用已生成的影片与实验；ES modules 需要 HTTP 服务。附带服务支持 MP4 分段请求，确保离线视频章节跳转可用。
 
 ## 验证
 
