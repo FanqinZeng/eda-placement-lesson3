@@ -10,6 +10,8 @@
 
 用户已授权按推荐静态方案全权推进。每 40 分钟的构建定时任务在网站及双语配音交付并验证后已结束；后续按具体反馈继续修改。
 
+**全站中英文、同屏双语字幕及实时 Python 已于 2026-11-17 18:04 发布并通过线上验证。** [中文界面](https://fanqinzeng.github.io/eda-placement-lesson3/?lang=zh) · [English UI](https://fanqinzeng.github.io/eda-placement-lesson3/?lang=en) · [Python 交互台](https://fanqinzeng.github.io/eda-placement-lesson3/python/)
+
 ## 内容
 
 - 全站中文 / English 界面切换，覆盖讲解、实验反馈、练习与在线资料页；选择保存在本机。也可用 `?lang=zh` 或 `?lang=en` 直接指定。

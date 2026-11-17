@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "checked_at": "2026-11-17T18:05:11.240136+08:00",
+  "url": "https://fanqinzeng.github.io/eda-placement-lesson3/",
+  "source_commit": "7ceb9989d6231881e415b67eb1a4f12d69c4b5b2",
+  "pages_workflow": 44061156033,
+  "browser": "installed Microsoft Edge via Playwright",
+  "checks": [
+    "English and Chinese UI across lesson and reading pages",
+    "dynamic exercise feedback and state preserved on language switch",
+    "language persistence and storage-denied fallback",
+    "both narration videos and same-scene voice switching",
+    "native bilingual cues contain Chinese and English",
+    "bilingual/Chinese/English subtitle choices",
+    "real CPython golden values 4/16/8 and edited values 11/36/16",
+    "live debounce, keyboard run, syntax and runtime errors",
+    "runaway loop stop, 5-second timeout and successful rerun",
+    "partial-line output, text-only output, 40k output cap",
+    "390/768/1440 layouts",
+    "same-origin bundled runtime requests, no CDN",
+    "no uncaught browser errors"
+  ],
+  "limitations": [
+    "No full human listening review",
+    "No physical touch-device verification"
+  ]
+}
