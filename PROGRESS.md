@@ -14,6 +14,14 @@
 
 ## 当前阶段
 
+**学习资料在线阅读已于 2026-11-17 13:11（Asia/Shanghai）公开交付并验证。**
+
+- 阅读页：https://fanqinzeng.github.io/eda-placement-lesson3/reading/
+- 主站资料区与播放器的中英文文字稿入口均进入站内 HTML 章节。Python 练习/参考实现、四组坐标表与原始 JSON、完整讲义、双语文字稿、复现说明全部可直接阅读。
+- 原文件下载是次要可选操作；代码可复制，关闭 JavaScript 也能读完整内容。
+- 发布工作流 44022075413 成功，源提交 e5362667f28999c3220c2bd3f7b6ffab1328cd2d。实际线上阅读、复制、不触发下载、移动布局及双语文字稿切换均验证通过。
+- 5组 Node、6组 Python、生成源一致性及63项跨页资源/锚点检查通过，独立审阅无发布阻断；线上报告见 `docs/qa/reading-deployment.json` 和 `docs/qa/bilingual-reading-deployment.json`。
+
 **中英文配音补齐已于 2026-11-17 12:36（Asia/Shanghai）公开交付并验证。**
 
 - 中文：346.367 秒（约 5:46），英文：349.767 秒（约 5:50）；两部独立真实配音 MP4，均为 1080p/30fps。

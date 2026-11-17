@@ -1,4 +1,15 @@
-# 首版交付验证
+# 课程交付验证
+
+## 学习资料在线阅读 · 2026-11-17 13:11
+
+- 阅读地址：https://fanqinzeng.github.io/eda-placement-lesson3/reading/
+- Python 练习/参考实现可直接查看、复制，坐标表及原始 JSON、讲义、中英文文字稿、复现说明全部嵌入 HTML；下载为可选操作。
+- 发布工作流 44022075413 成功，发布源 e5362667f28999c3220c2bd3f7b6ffab1328cd2d。
+- 5组 Node、6组 Python、生成一致性和63项跨页资源/锚点检查通过；独立审阅无重要问题。
+- 实际线上验证了入口不触发下载、代码与源文件相同、剪贴板复制、16行坐标表、无脚本完整阅读、390/768/1440布局，以及配音切换到对应在线文字稿。
+- [在线阅读报告](qa/reading-deployment.json) · [双语入口回归](qa/bilingual-reading-deployment.json) · [审阅记录](qa/reading-review.md)。
+
+## 初次交付
 
 2026-11-17 12:13（Asia/Shanghai），第一版已部署至 https://fanqinzeng.github.io/eda-placement-lesson3/ ，早于用户的 15:00 截止时间。
 
