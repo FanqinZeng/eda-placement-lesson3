@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "url": "https://fanqinzeng.github.io/eda-placement-lesson3/reading/",
+  "checks": [
+    "resource link opens native HTML without download",
+    "exercise/reference code equals original files",
+    "copy code clipboard",
+    "all four coordinate tables and original JSON",
+    "full Chinese notes and bilingual transcripts",
+    "content readable with JavaScript disabled",
+    "390/768/1440 no page overflow",
+    "cross-page navigation",
+    "no uncaught JavaScript errors"
+  ]
+}
