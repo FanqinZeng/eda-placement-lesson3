@@ -10,12 +10,19 @@ class Links(HTMLParser):
         if 'id' in a:self.ids.add(a['id'])
         for k in ('href','src','poster'):
             if a.get(k):self.urls.append(a[k])
-p=Links();p.feed((SITE/'index.html').read_text());errors=[]
-for u in p.urls:
-    x=urlsplit(u)
-    if x.scheme or x.netloc:continue
-    if x.path and not (SITE/unquote(x.path)).is_file():errors.append('Missing '+u)
-    if not x.path and x.fragment and x.fragment not in p.ids:errors.append('Missing anchor '+u)
+pages={}
+for file in SITE.rglob('*.html'):
+    p=Links();p.feed(file.read_text());pages[file.resolve()]=p
+errors=[];count=0
+for file,p in pages.items():
+    for u in p.urls:
+        count+=1;x=urlsplit(u)
+        if x.scheme or x.netloc:continue
+        target=(file.parent/unquote(x.path)).resolve() if x.path else file
+        if target.is_dir():target=target/'index.html'
+        if not target.is_file():errors.append(f'{file.name}: Missing '+u)
+        if x.fragment and target in pages and x.fragment not in pages[target].ids:errors.append(f'{file.name}: Missing anchor '+u)
 assert not errors,'\n'.join(errors)
-for id in ['film','learn','lab','practice','resources','sources']:assert id in p.ids
-print(f'PASS: {len(p.urls)} resource/anchor references and all course sections')
+for id in ['film','learn','lab','practice','resources','sources']:assert id in pages[(SITE/'index.html').resolve()].ids
+for id in ['exercise','reference','data','notes','transcript-zh','transcript-en','reproduce']:assert id in pages[(SITE/'reading/index.html').resolve()].ids
+print(f'PASS: {count} resource/anchor references across {len(pages)} HTML pages')

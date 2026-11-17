@@ -24,7 +24,7 @@ with sync_playwright() as p:
     assert page.locator('#lesson-captions').get_attribute('srclang')=='en-US'
     assert page.locator('#download-video').get_attribute('href')=='media/lesson.en.mp4'
     assert page.locator('#download-captions').get_attribute('href')=='media/lesson.en.vtt'
-    assert page.locator('#video-transcript').get_attribute('href')=='downloads/transcript.en.md'
+    assert page.locator('#video-transcript').get_attribute('href')=='reading/#transcript-en'
     video.evaluate('(v)=>{v.muted=true;return v.play()}');page.wait_for_function('!document.querySelector("video").paused')
     old=video.evaluate('(v)=>v.currentTime');page.locator('#voice-language').select_option('zh');page.wait_for_function('document.querySelector("video").dataset.language==="zh" && !document.querySelector("video").paused')
     assert abs(video.evaluate('(v)=>v.currentTime')-mapped(old,'en','zh'))<2
@@ -51,5 +51,5 @@ with sync_playwright() as p:
     for width in [390,1440]:
         page.set_viewport_size({'width':width,'height':900});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
     assert not errors,errors
-    report={'status':'passed','url':args.url,'languages':['zh','en'],'checks':['two real MP4 files','paused voice switch preserves scene/fraction','playing switch resumes','playback speed preserved','rapid language changes finish on latest choice','matching captions and track language','caption off preference preserved','obsolete play rejection cannot overwrite current status','matching current video/subtitle/transcript download links','language-specific chapter seeking','mobile/desktop no horizontal overflow','no uncaught JS errors']}
+    report={'status':'passed','url':args.url,'languages':['zh','en'],'checks':['two real MP4 files','paused voice switch preserves scene/fraction','playing switch resumes','playback speed preserved','rapid language changes finish on latest choice','matching captions and track language','caption off preference preserved','obsolete play rejection cannot overwrite current status','matching video/subtitle downloads and online transcript links','language-specific chapter seeking','mobile/desktop no horizontal overflow','no uncaught JS errors']}
     (ROOT/'docs/qa'/args.report).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');browser.close();print('PASS: actual Chinese/English voice switching, playback, captions, downloads and chapter seeking')

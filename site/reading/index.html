@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f1e9"><title>学习资料在线阅读 · Placement Lesson 03</title><meta name="description" content="直接在线阅读 Python 练习、参考实现、坐标表、中文讲义、中英文视频文字稿和复现说明。"><link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/reading.css"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"></head><body><a class="skip" href="#main">跳到正文</a><header><div class="wrap top"><a class="brand" href="../"><span class="brand-mark">⌗</span> Placement <em>03</em></a><nav aria-label="阅读导航"><a href="../#resources">返回课程</a><a href="../#lab">互动实验</a><a href="#notes">读讲义</a><a href="#transcript-zh">读文字稿</a></nav></div></header><main id="main"><div class="wrap reading-hero"><p class="eyebrow">PLACEMENT / 03 / THE READING ROOM</p><h1>把资料摊开，<br>慢慢读。</h1><p class="lead">公式、代码、数据和讲解，都在这一页。<br>先在线阅读，需要时再复制或下载。</p><a class="section-link" href="../#lab">读完一个例子，回实验台试试 →</a></div><div class="wrap reading-layout"><aside class="reading-index"><p class="eyebrow">本页目录</p><nav aria-label="学习资料目录"><a href="#exercise">Python 练习</a><a href="#reference">参考实现</a><a href="#data">标准坐标</a><a href="#notes">中文讲义</a><a href="#transcript-zh">中文文字稿</a><a href="#transcript-en">English transcript</a><a href="#reproduce">源码与复现</a></nav><p class="note">代码和正文已完整载入，关闭 JavaScript 也能阅读。</p></aside><div class="reading-content"><section id="exercise" class="reading-section"><p class="eyebrow">01 / READ ONLINE</p><h2>Python 练习：自己实现三把尺子</h2><p>直接阅读并复制下面的模板。补齐三个函数，标准四引脚的结果应为 <strong>4 / 16 / 8</strong>。<code>NotImplementedError</code> 是留给你完成的位置，不是网页出错。</p><div class="code-heading"><span>PYTHON / exercise.py</span><button type="button" class="code-copy" data-copy="exercise-code">复制代码</button></div><pre><code id="exercise-code">&quot;&quot;&quot;Complete the three functions. Golden A(2,2), B(4,2), C(2,4), D(4,4): 4/16/8.
+Each pin: {id: str, x: float, y: float}. Use Manhattan distances; hub=&#x27;A&#x27;.
+Compare your answers with reference.py. No third-party packages required.
+&quot;&quot;&quot;
+def bbox(pins):
+    raise NotImplementedError(&#x27;Sum x-span and y-span, not full perimeter&#x27;)
+def clique(pins):
+    raise NotImplementedError(&#x27;Each unordered pair exactly once&#x27;)
+def star(pins,hub=&#x27;A&#x27;):
+    raise NotImplementedError(&#x27;Sum Manhattan distances from the named existing pin&#x27;)
+</code></pre><p class="optional"><a href="../downloads/exercise.py" download>可选：下载原文件 ↓</a></p></section><section id="reference" class="reading-section"><p class="eyebrow">02 / READ ONLINE</p><h2>参考实现：逐项核对结果</h2><p>这是独立于网页 JavaScript 引擎的 Python 实现。先完成练习，再对照坐标扫描、无序对求和与中心选择。</p><div class="code-heading"><span>PYTHON / reference.py</span><button type="button" class="code-copy" data-copy="reference-code">复制代码</button></div><pre><code id="reference-code">&quot;&quot;&quot;Independent Manhattan net model reference. Python 3.9+, standard library only.
+Run: python3 reference.py &lt; inputs.json
+inputs.json: list of nets, each net = [{&quot;id&quot;:&quot;A&quot;,&quot;x&quot;:2,&quot;y&quot;:2}, ...]
+Outputs [bbox, clique, star-from-first-pin] for each net.
+&quot;&quot;&quot;
+import json,sys,math,itertools
+def evaluate(pins,hub=None):
+    ids=[p[&#x27;id&#x27;] for p in pins]
+    if len(ids)!=len(set(ids)): raise ValueError(&#x27;Duplicate pin&#x27;)
+    for p in pins:
+        if any(isinstance(p[k],bool) or not isinstance(p[k],(int,float)) or not math.isfinite(p[k]) for k in (&#x27;x&#x27;,&#x27;y&#x27;)): raise ValueError(&#x27;Invalid coordinate&#x27;)
+    if not pins:return [0,0,0]
+    hub=ids[0] if hub is None else hub
+    if hub not in ids:raise ValueError(&#x27;Invalid hub&#x27;)
+    distance=lambda a,b:abs(a[&#x27;x&#x27;]-b[&#x27;x&#x27;])+abs(a[&#x27;y&#x27;]-b[&#x27;y&#x27;])
+    bbox=sum(max(p[k] for p in pins)-min(p[k] for p in pins) for k in (&#x27;x&#x27;,&#x27;y&#x27;))
+    clique=sum(distance(a,b) for a,b in itertools.combinations(pins,2))
+    h=next(p for p in pins if p[&#x27;id&#x27;]==hub)
+    return [bbox,clique,sum(distance(h,p) for p in pins)]
+if __name__==&#x27;__main__&#x27;:print(json.dumps([evaluate(p) for p in json.load(sys.stdin)]))
+</code></pre><p class="optional"><a href="../downloads/reference.py" download>可选：下载原文件 ↓</a></p></section><section id="data" class="reading-section"><p class="eyebrow">03 / READ ONLINE</p><h2>标准坐标：先看表，再看 JSON</h2><p>与实验台共享以下四组坐标。原点在左下、y 向上；一张表就是一个 net 的引脚列表。</p><div class="datasets"><article><h3>标准正方形 · Golden</h3><table><thead><tr><th>Pin</th><th>x</th><th>y</th></tr></thead><tbody><tr><th scope="row">A</th><td>2</td><td>2</td></tr><tr><th scope="row">B</th><td>4</td><td>2</td></tr><tr><th scope="row">C</th><td>2</td><td>4</td></tr><tr><th scope="row">D</th><td>4</td><td>4</td></tr></tbody></table></article><article><h3>分散正方形 · Starter</h3><table><thead><tr><th>Pin</th><th>x</th><th>y</th></tr></thead><tbody><tr><th scope="row">A</th><td>0</td><td>0</td></tr><tr><th scope="row">B</th><td>8</td><td>0</td></tr><tr><th scope="row">C</th><td>0</td><td>8</td></tr><tr><th scope="row">D</th><td>8</td><td>8</td></tr></tbody></table></article><article><h3>非对称 · Asymmetric</h3><table><thead><tr><th>Pin</th><th>x</th><th>y</th></tr></thead><tbody><tr><th scope="row">A</th><td>0</td><td>0</td></tr><tr><th scope="row">B</th><td>6</td><td>0</td></tr><tr><th scope="row">C</th><td>1</td><td>2</td></tr><tr><th scope="row">D</th><td>2</td><td>5</td></tr></tbody></table></article><article><h3>内部点 · Interior</h3><table><thead><tr><th>Pin</th><th>x</th><th>y</th></tr></thead><tbody><tr><th scope="row">A</th><td>0</td><td>0</td></tr><tr><th scope="row">B</th><td>8</td><td>0</td></tr><tr><th scope="row">C</th><td>0</td><td>8</td></tr><tr><th scope="row">D</th><td>4</td><td>4</td></tr></tbody></table></article></div><details><summary>查看与复制原始 JSON</summary><div class="code-heading"><span>JSON / examples.json</span><button type="button" class="code-copy" data-copy="data-code">复制代码</button></div><pre><code id="data-code">{
+  &quot;golden&quot;: [
+    {
+      &quot;id&quot;: &quot;A&quot;,
+      &quot;x&quot;: 2,
+      &quot;y&quot;: 2
+    },
+    {
+      &quot;id&quot;: &quot;B&quot;,
+      &quot;x&quot;: 4,
+      &quot;y&quot;: 2
+    },
+    {
+      &quot;id&quot;: &quot;C&quot;,
+      &quot;x&quot;: 2,
+      &quot;y&quot;: 4
+    },
+    {
+      &quot;id&quot;: &quot;D&quot;,
+      &quot;x&quot;: 4,
+      &quot;y&quot;: 4
+    }
+  ],
+  &quot;starter&quot;: [
+    {
+      &quot;id&quot;: &quot;A&quot;,
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;B&quot;,
+      &quot;x&quot;: 8,
+      &quot;y&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;C&quot;,
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 8
+    },
+    {
+      &quot;id&quot;: &quot;D&quot;,
+      &quot;x&quot;: 8,
+      &quot;y&quot;: 8
+    }
+  ],
+  &quot;asymmetric&quot;: [
+    {
+      &quot;id&quot;: &quot;A&quot;,
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;B&quot;,
+      &quot;x&quot;: 6,
+      &quot;y&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;C&quot;,
+      &quot;x&quot;: 1,
+      &quot;y&quot;: 2
+    },
+    {
+      &quot;id&quot;: &quot;D&quot;,
+      &quot;x&quot;: 2,
+      &quot;y&quot;: 5
+    }
+  ],
+  &quot;interior&quot;: [
+    {
+      &quot;id&quot;: &quot;A&quot;,
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;B&quot;,
+      &quot;x&quot;: 8,
+      &quot;y&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;C&quot;,
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 8
+    },
+    {
+      &quot;id&quot;: &quot;D&quot;,
+      &quot;x&quot;: 4,
+      &quot;y&quot;: 4
+    }
+  ]
+}
+</code></pre><p class="optional"><a href="../downloads/examples.json" download>可选：下载原文件 ↓</a></p></details></section><section id="notes" class="reading-section"><p class="eyebrow">04 / READ ONLINE</p><h2>完整中文讲义</h2><h3>同一组引脚，三把不同的尺子</h3>
+<p>Placement · Lesson 03 · FanqinZeng</p>
+<h4>目标和约定</h4>
+<p>学会从坐标求 BBox/HPWL、Clique 和 Star，说明每一项来自哪里，识别三种模型的限制。本课使用单个 net 的单位权重、二维曼哈顿距离。四个引脚均可移动，这是测量实验，不是带固定单元约束的布局优化器。</p>
+<p>坐标原点在左下，y 向上。两引脚之间的曼哈顿距离为 |xᵢ−xⱼ|+|yᵢ−yⱼ|。图中的折线表示这个距离，不能当成实际共享布线。</p>
+<h4>三个模型</h4>
+<ol><li><strong>BBox / HPWL</strong>：找到 x、y 各自的最大和最小值，结果为 (max x−min x)+(max y−min y)。它是包围盒半周长，不是完整周长。扫描 p 个引脚一次，时间 O(p)。</li><li><strong>Clique</strong>：对所有无序引脚对 i&lt;j，分别求曼哈顿距离再相加。共有 p(p−1)/2 对，时间 O(p²)。本课未归一化，也没有使用距离平方。</li><li><strong>Star-from-h</strong>：选一个现有引脚 h 为中心，只求它到其余 p−1 个引脚的距离总和。时间 O(p)。h 的选择属于定义；虚拟中心是另一个约定。</li></ol>
+<h4>可以手算的标准例</h4>
+<div class="table-scroll"><table><thead><tr><th>Pin</th><th>x</th><th>y</th></tr></thead><tbody>
+<tr><td>A</td><td>2</td><td>2</td></tr>
+<tr><td>B</td><td>4</td><td>2</td></tr>
+<tr><td>C</td><td>2</td><td>4</td></tr>
+<tr><td>D</td><td>4</td><td>4</td></tr>
+</tbody></table></div>
+<p>HPWL = 2+2 = <strong>4</strong>。</p>
+<p>Clique 的六对为 AB=2、AC=2、AD=4、BC=4、BD=2、CD=2，总和 <strong>16</strong>。AB 和 BA 不能各算一次。</p>
+<p>Star-from-A = AB+AC+AD = 2+2+4 = <strong>8</strong>。</p>
+<h4>三个反例</h4>
+<p><strong>中心依赖。</strong> A(0,0)、B(6,0)、C(1,2)、D(2,5)，HPWL=11、Clique=36。Star 的中心依次选 A/B/C/D，得到 16/22/14/20。因此对称正方形四个中心恰好同值，不能推出一般情况换中心不变。</p>
+<p><strong>内部点的盲区。</strong> A(0,0)、B(8,0)、C(0,8)、D(4,4)。把 D 改成 (2,2)，HPWL 仍是 16，Clique 从 56 降到 52，Star-from-A 从 24 降到 20。边界没有变，不意味着其他模型没有变化。</p>
+<p><strong>零值不是合法性证书。</strong> 所有点重叠，三个值都为零。模型没有检查真实单元的面积、重叠、密度与时序，所以不能据此宣布布局完成。</p>
+<h4>比较需要同一口径</h4>
+<p>同图的 4、16、8 测的是不同对象，不能凭数字大小判定哪个模型“最好”。比较两个布局候选时，先对齐模型、距离、权重和约束。HPWL 是估计，不是精确实际布线长度。</p>
+<p>本课主实验只测 ABCD。教师六个 net 的未加权总 HPWL 为 52→14；加入 [1,1,1,1,5,1] 权重后为 116→30。不要把全网数值和单 net 的 16→4 放在同一列混用。</p>
+<h4>实现与验证</h4>
+<p>完成 exercise.py 的三个函数，再用 reference.py 核对。输入为列表，每个 pin 有 id、x、y；名字不能重复，坐标必须是有限数。空或单 pin net 的结果为零；有 pin 时 hub 必须属于输入。两个 pin 时三模型数值相同。</p>
+<p>检查平移不变性、统一正比例缩放，以及所有现有引脚作中心的 Star 总和等于两倍 Clique。程序还应拒绝缺失坐标、NaN、重复名字和非法中心。</p>
+<h4>来源与许可</h4>
+<p>教材依据 Yongfu Li 的 eda-learning / module01-03-net-models 和 placement-core.js。对应关系依据课程顺序，issue #26 本文为空。新讲解与练习 CC BY 4.0，新代码 MIT。逐课参考与字体等第三方来源见仓库 THIRD_PARTY_NOTICES.md。</p><p class="optional"><a href="../downloads/lesson.md" download>可选：下载 Markdown 讲义 ↓</a></p></section><section id="transcript-zh" class="reading-section" lang="zh-CN"><p class="eyebrow">05 / READ ONLINE</p><h2>视频文字稿 · 中文</h2><p><a href="../#film">返回双语影片 →</a></p><h3>同一组引脚，三把尺子</h3>
+<p>普通话合成旁白：zh-CN-XiaoxiaoNeural；总长 346.37 秒。</p>
+<h4>00:00:00.000 · 同一组引脚，三把尺子</h4>
+<p>同一组引脚，为什么会有三种线长？这一课，我们用三把不同的尺子，看懂芯片布局里的网络模型。</p>
+<h4>00:00:10.400 · 先确定连接，再讨论位置</h4>
+<p>在芯片里，一个网络可以同时连接多个引脚。连接关系已经确定，布局决定它们的位置。估计线长之前，我们还需要选定测量模型。</p>
+<h4>00:00:24.100 · 把问题缩小到四个点</h4>
+<p>先用四个可以手算的点。A、B、C、D，放在边长为二的正方形四角。全课用同一个例子，比较包围盒、完全图和星形模型。</p>
+<h4>00:00:38.133 · 只走横向和竖向</h4>
+<p>本课使用曼哈顿距离。它不是两点间的直线距离，而是横向差的绝对值，加竖向差的绝对值。图中的折线是测量示意。</p>
+<h4>00:00:51.200 · A 到 D，走两格再走两格</h4>
+<p>从左下角的 A 到右上角的 D，横向走二，竖向也走二，所以距离为四。先把这把小尺子固定，后面的求和才有相同口径。</p>
+<h4>00:01:04.333 · 第一把尺子：只看边界</h4>
+<p>第一种模型，先找到所有引脚的最小包围盒。最左、最右确定宽，最下、最上确定高。半周长线长，就是宽加高。</p>
+<h4>00:01:17.200 · 半周长，不是整圈周长</h4>
+<p>在这个正方形上，宽是二，高也是二，半周长是四。注意，是半周长。沿着四条边绕完整一圈会得到八，那不是这里的指标。</p>
+<h4>00:01:30.900 · 一次扫描，就能算完</h4>
+<p>无论有多少引脚，包围盒只需要四个极值。扫描每个引脚一次，就能得到结果。所以它计算便宜，适合快速估计网络的线长。</p>
+<h4>00:01:44.533 · 第二把尺子：每一对都量</h4>
+<p>第二种模型叫完全图模型，也叫克利克模型。它把每对不同引脚都连起来。四个引脚共有六对，同一对只计算一次。</p>
+<h4>00:01:56.800 · 每一项，都有对应的引脚对</h4>
+<p>按字母顺序，先算 A 到 B、A 到 C、A 到 D，再算 B 到 C、B 到 D，最后算 C 到 D。六个距离依次是二、二、四、四、二、二。</p>
+<h4>00:02:11.867 · 六对相加，得到十六</h4>
+<p>把六项相加，完全图模型的总和是十六。不要把 A 到 B 和 B 到 A 各加一遍，否则会重复计数，结果变成三十二。</p>
+<h4>00:02:24.133 · 连接数，随规模平方增长</h4>
+<p>当引脚数为 p，完全图有 p 乘 p 减一，再除以二条边。这里使用没有归一化的曼哈顿距离总和，不是后续二次布局里的平方距离目标。</p>
+<h4>00:02:38.033 · 第三把尺子：选一个中心</h4>
+<p>第三种是星形模型。先选一个现有引脚作中心，再把它连到其他引脚。本课把 A 作为中心，没有额外加入虚拟节点。</p>
+<h4>00:02:50.467 · 只量三条辐条</h4>
+<p>中心是 A 时，只需要 A 到 B、A 到 C、A 到 D 三条辐条。距离分别是二、二、四，总和为八。其余引脚之间的距离不进入这个和。</p>
+<h4>00:03:05.200 · 中心，是定义的一部分</h4>
+<p>星形模型只有 p 减一条辐条，计算量与引脚数成正比。但不要忘记，选择哪个中心，也是模型定义的一部分。报告数字时要写清楚。</p>
+<h4>00:03:19.500 · 同一组点，三个读数</h4>
+<p>现在，同一组点得到了四、十六、八。连接没有改变，坐标也没有改变，只是求和方式不同。这些数不能直接用来给模型排优劣。</p>
+<h4>00:03:33.533 · 换一张不对称的图</h4>
+<p>标准正方形里，四个角作星形中心，结果恰好一样。这个现象来自对称性。换成一张不对称的图，我们就能看见中心的影响。</p>
+<h4>00:03:46.667 · 换中心，读数真的会改变</h4>
+<p>在这组坐标里，A、B、C、D 作中心，星形值分别为十六、二十二、十四、二十。最小值在 C。它说明中心重要，并没有证明某种布局算法最优。</p>
+<h4>00:04:03.300 · 包围盒看不见内部移动</h4>
+<p>再看内部点的例子。A、B、C 支撑着八乘八的包围盒，让 D 从内部的四、四，移动到二、二。观察三把尺子，谁发生了变化。</p>
+<h4>00:04:17.600 · 同一次移动，不同的敏感性</h4>
+<p>移动之后，半周长仍是十六，因为最外面的边界没有变。完全图从五十六降到五十二，星形从二十四降到二十。模型对位置的敏感性不同。</p>
+<h4>00:04:32.400 · 全部挤在一起，真的好吗？</h4>
+<p>如果把所有引脚挤到同一个位置，三个线长都变成零。但真实单元有面积，不能任意重叠。线长模型没有替你检查密度、重叠和时序。</p>
+<h4>00:04:46.800 · 模型示意，不等于实际布线</h4>
+<p>图上的折线只用于表示测量关系，不是最终的共享布线路径。比较两个布局之前，先确认使用相同模型、相同距离、相同权重，以及相同的约束。</p>
+<h4>00:05:01.967 · 从分散到紧凑，重新测量</h4>
+<p>回到网页，载入分散正方形，再载入标准正方形。三种读数从十六、六十四、三十二，变成四、十六、八。你也可以自己拖动一个点，实时检查。</p>
+<h4>00:05:18.000 · 先预测，再运行</h4>
+<p>试着更换星形中心，移动内部点，再完成六个实验任务。每次先写下自己的预测，再读程序给出的每一项，解释变化是从哪里来的。</p>
+<h4>00:05:31.633 · 带走三个函数，也带走约定</h4>
+<p>最后，用可下载的 Python 练习实现三个函数，和独立参考程序核对。比记住四、十六、八更重要的，是你能说清楚，每个数字究竟量了什么。</p><p class="optional"><a href="../downloads/transcript.md" download>可选：下载中文文字稿 ↓</a></p></section><section id="transcript-en" class="reading-section" lang="en"><p class="eyebrow">06 / READ ONLINE</p><h2>Video transcript · English</h2><p><a href="../#film">返回影片，在配音菜单选择 English →</a></p><h3>One net. Three rulers.</h3>
+<p>Voice: en-US-JennyNeural; duration 349.77 s.</p>
+<h4>00:00:00.000 · One net. Three rulers.</h4>
+<p>How can the same set of pins have three different wirelengths? In this lesson, we use three different rulers to understand net models in chip placement.</p>
+<h4>00:00:10.467 · Connections first. Positions next.</h4>
+<p>A net on a chip can connect several pins at once. The connections are already specified; placement chooses their positions. Before estimating wirelength, we must also choose a measurement model.</p>
+<h4>00:00:24.767 · Four pins we can check by hand</h4>
+<p>Start with four pins at the corners of a square of side two. We use these same coordinates throughout, comparing a bounding box, a clique, and a star.</p>
+<h4>00:00:35.733 · Horizontal plus vertical</h4>
+<p>We use Manhattan distance, rather than straight-line distance. Add the absolute horizontal difference to the absolute vertical difference. The bent lines in our drawings illustrate that measurement.</p>
+<h4>00:00:49.533 · From A to D: two plus two</h4>
+<p>From A at the lower left to D at the upper right, move two units horizontally and two vertically. Their Manhattan distance is four. Every model here uses this same basic distance.</p>
+<h4>00:01:02.833 · Ruler one: measure the boundary</h4>
+<p>The first model finds the smallest box containing all pins. The leftmost and rightmost pins determine its width. The lowest and highest determine its height. Add width and height.</p>
+<h4>00:01:17.067 · Half the perimeter, not all of it</h4>
+<p>For our square, width and height are both two, giving a half-perimeter wirelength of four. Walking around all four sides gives eight. That is the full perimeter, not this metric.</p>
+<h4>00:01:30.967 · A single scan is enough</h4>
+<p>The bounding box needs only four extreme coordinates. Scan each pin once to find them, so the computation grows linearly with the number of pins. It is a cheap wirelength estimate.</p>
+<h4>00:01:44.433 · Ruler two: measure every pair</h4>
+<p>The second model is a clique: connect every pair of distinct pins and add their Manhattan distances. Four pins give six unordered pairs. Count each pair exactly once.</p>
+<h4>00:01:57.967 · Every term names a pair</h4>
+<p>In alphabetical order, measure A to B, A to C, and A to D; then B to C, B to D, and C to D. The six distances are two, two, four, four, two, and two.</p>
+<h4>00:02:13.067 · Six distances add up to sixteen</h4>
+<p>Adding these six terms gives sixteen. Do not count both A to B and B to A. Those names describe the same unordered pair; double counting would incorrectly produce thirty-two.</p>
+<h4>00:02:26.200 · The edge count grows quadratically</h4>
+<p>With p pins, a clique has p times p minus one, divided by two edges. Here we sum unnormalized Manhattan distances. This is not the squared-distance objective used in quadratic placement.</p>
+<h4>00:02:40.767 · Ruler three: choose a hub</h4>
+<p>The third model is a star. Choose one existing pin as a hub and connect it to every other pin. Our example uses A. We do not introduce a virtual center.</p>
+<h4>00:02:53.867 · Measure only three spokes</h4>
+<p>With A as the hub, the spokes are A to B, A to C, and A to D. Their lengths are two, two, and four, totaling eight. Other pin pairs do not enter this sum.</p>
+<h4>00:03:07.500 · The hub is part of the definition</h4>
+<p>A star has only p minus one spokes, so its computation is linear in the pin count. But the hub is part of the model definition. Always name it when reporting the result.</p>
+<h4>00:03:20.367 · Same pins. Three readings.</h4>
+<p>The same pins now give four, sixteen, and eight. Neither their coordinates nor their connections changed. Only the measurement changed. These numbers alone cannot rank which model is better.</p>
+<h4>00:03:35.267 · Break the symmetry</h4>
+<p>For the square, choosing any corner as the star hub happens to give the same answer. That is a consequence of symmetry. An asymmetric example reveals why the hub matters.</p>
+<h4>00:03:48.200 · Change the hub. Change the result.</h4>
+<p>Using A, B, C, and D as hubs now gives sixteen, twenty-two, fourteen, and twenty. C has the smallest value here. This shows hub dependence; it does not prove a placement algorithm is optimal.</p>
+<h4>00:04:04.267 · An interior move can stay hidden</h4>
+<p>Next, A, B, and C support an eight by eight bounding box. Move the interior pin D from four, four to two, two. Watch the three rulers: which readings change?</p>
+<h4>00:04:18.767 · One move. Different sensitivities.</h4>
+<p>The half-perimeter stays sixteen because the outer boundaries did not change. The clique decreases from fifty-six to fifty-two, and the star from twenty-four to twenty. Different models respond differently to the same move.</p>
+<h4>00:04:33.867 · Zero wirelength is not a legal layout</h4>
+<p>Place every pin at one position and all three wirelengths become zero. Real cells have area and cannot freely overlap. These measurements have not checked density, overlap, or timing.</p>
+<h4>00:04:47.933 · A model drawing is not routed wire</h4>
+<p>The bent lines illustrate measurement relationships, not final shared routing paths. Before comparing two placement candidates, align the model, the distance, the weights, and the constraints. Small numbers need a clear definition.</p>
+<h4>00:05:04.433 · Measure a spread and a compact square</h4>
+<p>On the website, load the spread square and then the compact reference square. The readings change from sixteen, sixty-four, thirty-two to four, sixteen, eight. Drag a pin to investigate your own placement.</p>
+<h4>00:05:20.033 · Predict first. Then check.</h4>
+<p>Change the star hub, move the interior pin, and try the six experiment tasks. Write down your prediction first. Then inspect each computed contribution and explain where the change came from.</p>
+<h4>00:05:34.600 · Take the definitions with you</h4>
+<p>Finally, implement the three functions in the downloadable Python exercise and compare with the independent reference. More important than remembering four, sixteen, and eight is explaining exactly what each number measures.</p><p class="optional"><a href="../downloads/transcript.en.md" download>Optional: download the English transcript ↓</a></p></section><section id="reproduce" class="reading-section"><p class="eyebrow">07 / READ ONLINE</p><h2>源码与复现：看懂之后再动手</h2><h3>源码与复现说明</h3>
+<h4>先在网站中验证</h4>
+<p>返回课程的交互实验，载入标准正方形。三个结果应为 HPWL 4、Clique 16、Star-from-A 8。切换非对称图并更换中心，再对照阅读页中的数据表。</p>
+<p>网页实验在浏览器本地计算，不需要登录。阅读 Python 和 JSON 也不需要安装任何软件。下面的本机操作仅在你希望自己运行或修改时使用。</p>
+<h4>自己运行 Python</h4>
+<p>练习模板和参考实现已经完整显示在本页。可复制代码到编辑器，也可选择下载原文件。</p>
+<p>将参考实现保存为 reference.py 后，在同一目录用以下例子核对：</p>
+<pre><code>from reference import evaluate
+
+pins = [
+    {&quot;id&quot;: &quot;A&quot;, &quot;x&quot;: 2, &quot;y&quot;: 2},
+    {&quot;id&quot;: &quot;B&quot;, &quot;x&quot;: 4, &quot;y&quot;: 2},
+    {&quot;id&quot;: &quot;C&quot;, &quot;x&quot;: 2, &quot;y&quot;: 4},
+    {&quot;id&quot;: &quot;D&quot;, &quot;x&quot;: 4, &quot;y&quot;: 4},
+]
+print(evaluate(pins, &quot;A&quot;))  # [4, 16, 8]</code></pre>
+<p>参考实现只使用 Python 标准库。坐标文件 examples.json 按预设名称组织；evaluate 接收其中某个预设的引脚列表，例如 data[&quot;golden&quot;]，而不是整个预设字典。</p>
+<h4>离线运行整站</h4>
+<p>获取完整课程仓库后，在仓库根目录运行：</p>
+<pre><code>python3 scripts/serve.py --port 8000</code></pre>
+<p>在浏览器打开 http://localhost:8000。这个本地服务支持视频分段请求，章节跳转可以正常工作。视频、双语字幕、文字稿和所有实验资源都随仓库提供，播放已生成影片无需再次调用语音服务。</p>
+<h4>修改课程或重新制作影片</h4>
+<ul><li>网页与算法：site/index.html、site/assets/models.mjs、site/assets/app.mjs。</li><li>在线阅读页：scripts/build_reading.py 从原始讲义、代码、数据和文字稿生成，修改内容后运行 python3 scripts/build_reading.py。</li><li>中文分镜：video/story.json；英文分镜：video/story.en.json。</li><li>冻结语音与实际句子时间戳：video/audio/ 和 video/audio/en/。</li><li>语音和渲染：scripts/speech.py、scripts/render-film.py，使用 --lang zh 或 --lang en。</li></ul>
+<p>完整运行命令、依赖与许可可在<a href="https://github.com/FanqinZeng/eda-placement-lesson3">课程源码与 README</a>中直接查看。</p>
+<h4>检查结果</h4>
+<pre><code>node --test tests/*.test.mjs
+python3 scripts/check-site.py
+python3 scripts/build_reading.py --check</code></pre>
+<p>媒体流、音量与字幕验证需要制作依赖，分别运行 scripts/verify-media.py 和 scripts/verify-media.py --lang en。自动测试不等于人的完整听感审评或所有真实设备的验证。</p>
+<p>新增代码 MIT，新教材 CC BY 4.0。教师教材、字体与合成语音来源见仓库 THIRD_PARTY_NOTICES.md。</p></section></div></div></main><footer><div class="wrap">PLACEMENT / 03 · 学习资料<span>代码 MIT / 新教材 CC BY 4.0</span><a href="../#resources">返回课程 ↑</a></div></footer><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p><script type="module" src="../assets/reading.mjs"></script></body></html>
+<!-- source-sha256: 617e62075a30a998b287afcf8cdb5cb972e4a4e08bc492726e8846ca91d1caa4 -->
