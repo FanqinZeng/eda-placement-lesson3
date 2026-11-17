@@ -1,0 +1,362 @@
+{
+  "golden": {
+    "pins": [
+      {
+        "id": "A",
+        "x": 2,
+        "y": 2
+      },
+      {
+        "id": "B",
+        "x": 4,
+        "y": 2
+      },
+      {
+        "id": "C",
+        "x": 2,
+        "y": 4
+      },
+      {
+        "id": "D",
+        "x": 4,
+        "y": 4
+      }
+    ],
+    "metrics": {
+      "bbox": 4,
+      "clique": 16,
+      "star": 8,
+      "box": {
+        "minX": 2,
+        "maxX": 4,
+        "minY": 2,
+        "maxY": 4
+      },
+      "pairs": [
+        {
+          "from": "A",
+          "to": "B",
+          "value": 2
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "value": 2
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "value": 4
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "value": 4
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "value": 2
+        },
+        {
+          "from": "C",
+          "to": "D",
+          "value": 2
+        }
+      ],
+      "spokes": [
+        {
+          "from": "A",
+          "to": "B",
+          "value": 2
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "value": 2
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "value": 4
+        }
+      ]
+    },
+    "hubs": {
+      "A": 8,
+      "B": 8,
+      "C": 8,
+      "D": 8
+    }
+  },
+  "starter": {
+    "pins": [
+      {
+        "id": "A",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "B",
+        "x": 8,
+        "y": 0
+      },
+      {
+        "id": "C",
+        "x": 0,
+        "y": 8
+      },
+      {
+        "id": "D",
+        "x": 8,
+        "y": 8
+      }
+    ],
+    "metrics": {
+      "bbox": 16,
+      "clique": 64,
+      "star": 32,
+      "box": {
+        "minX": 0,
+        "maxX": 8,
+        "minY": 0,
+        "maxY": 8
+      },
+      "pairs": [
+        {
+          "from": "A",
+          "to": "B",
+          "value": 8
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "value": 8
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "value": 16
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "value": 16
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "value": 8
+        },
+        {
+          "from": "C",
+          "to": "D",
+          "value": 8
+        }
+      ],
+      "spokes": [
+        {
+          "from": "A",
+          "to": "B",
+          "value": 8
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "value": 8
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "value": 16
+        }
+      ]
+    },
+    "hubs": {
+      "A": 32,
+      "B": 32,
+      "C": 32,
+      "D": 32
+    }
+  },
+  "asymmetric": {
+    "pins": [
+      {
+        "id": "A",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "B",
+        "x": 6,
+        "y": 0
+      },
+      {
+        "id": "C",
+        "x": 1,
+        "y": 2
+      },
+      {
+        "id": "D",
+        "x": 2,
+        "y": 5
+      }
+    ],
+    "metrics": {
+      "bbox": 11,
+      "clique": 36,
+      "star": 16,
+      "box": {
+        "minX": 0,
+        "maxX": 6,
+        "minY": 0,
+        "maxY": 5
+      },
+      "pairs": [
+        {
+          "from": "A",
+          "to": "B",
+          "value": 6
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "value": 3
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "value": 7
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "value": 7
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "value": 9
+        },
+        {
+          "from": "C",
+          "to": "D",
+          "value": 4
+        }
+      ],
+      "spokes": [
+        {
+          "from": "A",
+          "to": "B",
+          "value": 6
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "value": 3
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "value": 7
+        }
+      ]
+    },
+    "hubs": {
+      "A": 16,
+      "B": 22,
+      "C": 14,
+      "D": 20
+    }
+  },
+  "interior": {
+    "pins": [
+      {
+        "id": "A",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "B",
+        "x": 8,
+        "y": 0
+      },
+      {
+        "id": "C",
+        "x": 0,
+        "y": 8
+      },
+      {
+        "id": "D",
+        "x": 4,
+        "y": 4
+      }
+    ],
+    "metrics": {
+      "bbox": 16,
+      "clique": 56,
+      "star": 24,
+      "box": {
+        "minX": 0,
+        "maxX": 8,
+        "minY": 0,
+        "maxY": 8
+      },
+      "pairs": [
+        {
+          "from": "A",
+          "to": "B",
+          "value": 8
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "value": 8
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "value": 8
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "value": 16
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "value": 8
+        },
+        {
+          "from": "C",
+          "to": "D",
+          "value": 8
+        }
+      ],
+      "spokes": [
+        {
+          "from": "A",
+          "to": "B",
+          "value": 8
+        },
+        {
+          "from": "A",
+          "to": "C",
+          "value": 8
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "value": 8
+        }
+      ]
+    },
+    "hubs": {
+      "A": 24,
+      "B": 32,
+      "C": 32,
+      "D": 24
+    }
+  }
+}
